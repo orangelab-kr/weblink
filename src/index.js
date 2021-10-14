@@ -23,7 +23,7 @@ ReactDOM.render(
         </Route>
         <Route path="/">
           <RequiredAuth>
-            <Route path="/settings">
+            <Route path="/setting">
               <Setting />
             </Route>
           </RequiredAuth>
