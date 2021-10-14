@@ -1,17 +1,33 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Reset } from 'styled-reset';
+import { RequiredAuth, Setting } from '.';
+import { AuthAuthorize } from './pages/auth/Authorize';
+
+export * from './components';
+export * from './pages';
+export * from './tools';
+
+export const baseURL = 'https://coreservice.staging.hikick.kr/v1';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Reset />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/auth/authorize">
+          <AuthAuthorize />
+        </Route>
+        <Route path="/">
+          <RequiredAuth>
+            <Route path="/settings">
+              <Setting />
+            </Route>
+          </RequiredAuth>
+        </Route>
+      </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
