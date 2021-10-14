@@ -34,7 +34,7 @@ export const Setting = () => {
   useEffect(() => loadUser(), [loadUser, setLoading]);
   return (
     <FullScreenLoading loading={loading}>
-      <SettingProfileBlock user={user} />
+      <SettingProfileBlock user={user} updateUser={updateUser} />
       <SettingInfoBlock user={user} updateUser={updateUser} />
       <SettingMethodBlock user={user} methods={methods} />
       <SettingReceiveBlock user={user} updateUser={updateUser} />

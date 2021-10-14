@@ -1,7 +1,16 @@
-import { Image, Popover, Toast } from 'antd-mobile';
-import { PicturesOutline, VideoOutline } from 'antd-mobile-icons';
+import { Image } from 'antd-mobile';
+import { useRef } from 'react';
+import { Client } from '../../..';
 
-export const SettingProfileBlock = ({ user }) => {
+export const SettingProfileBlock = ({ user, updateUser }) => {
+  const imageRef = useRef(null);
+  const onSelectImage = () => imageRef.current.click();
+  const onChangeImage = async (event) => {
+    const file = event.target.files[0];
+    const { data } = await Client.post('/images', file);
+    await updateUser({ profileUrl: data.url });
+  };
+
   return (
     <>
       <div
@@ -12,22 +21,14 @@ export const SettingProfileBlock = ({ user }) => {
           alignItems: 'center',
         }}
       >
-        <Popover.Menu
-          actions={[
-            { text: '앨범에서 선택', icon: <PicturesOutline /> },
-            { text: '카메라로 촬영', icon: <VideoOutline /> },
-          ]}
-          onAction={(node) => Toast.show(`选择了 ${node.text}`)}
-          placement="bottom"
-          trigger="click"
-        >
-          <Image
-            width={100}
-            height={100}
-            fit="cover"
-            style={{ borderRadius: 100 }}
-          />
-        </Popover.Menu>
+        <Image
+          width={100}
+          height={100}
+          fit="cover"
+          src={user.profileUrl || '/assets/user.png'}
+          style={{ borderRadius: 100 }}
+          onClick={onSelectImage}
+        />
         <div style={{ marginLeft: 30 }}>
           <p
             style={{
@@ -47,6 +48,13 @@ export const SettingProfileBlock = ({ user }) => {
             반가워요.
           </p>
         </div>
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: 'none' }}
+          onChange={onChangeImage}
+          ref={imageRef}
+        />
       </div>
     </>
   );

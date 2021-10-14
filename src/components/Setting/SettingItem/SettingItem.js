@@ -1,9 +1,10 @@
 import { Divider } from 'antd-mobile';
 
-export const SettingItem = ({ children, icon, gap, title, extra }) => {
+export const SettingItem = ({ children, icon, gap, title, extra, onClick }) => {
   return (
     <>
       <div
+        onClick={onClick}
         style={{
           display: 'flex',
           justifyContent: 'space-between',
