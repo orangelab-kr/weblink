@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import { AuthAuthorize, RequiredAuth, Setting } from '.';
+import { AuthAuthorize, Notification, RequiredAuth, Setting } from '.';
 
 export * from './components';
 export * from './pages';
@@ -35,6 +35,9 @@ ReactDOM.render(
             <RequiredAuth>
               <Route path="/setting">
                 <Setting />
+              </Route>
+              <Route path="/notification">
+                <Notification />
               </Route>
             </RequiredAuth>
           </Route>

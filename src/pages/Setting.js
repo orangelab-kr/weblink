@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import {
   Client,
+  DepthPage,
   FullScreenLoading,
   SettingEtcBlock,
   SettingInfoBlock,
@@ -33,12 +34,14 @@ export const Setting = () => {
 
   useEffect(() => loadUser(), [loadUser, setLoading]);
   return (
-    <FullScreenLoading loading={loading}>
-      <SettingProfileBlock user={user} updateUser={updateUser} />
-      <SettingInfoBlock user={user} updateUser={updateUser} />
-      <SettingMethodBlock user={user} methods={methods} />
-      <SettingReceiveBlock user={user} updateUser={updateUser} />
-      <SettingEtcBlock user={user} />
-    </FullScreenLoading>
+    <DepthPage>
+      <FullScreenLoading loading={loading}>
+        <SettingProfileBlock user={user} updateUser={updateUser} />
+        <SettingInfoBlock user={user} updateUser={updateUser} />
+        <SettingMethodBlock user={user} methods={methods} />
+        <SettingReceiveBlock user={user} updateUser={updateUser} />
+        <SettingEtcBlock user={user} />
+      </FullScreenLoading>
+    </DepthPage>
   );
 };
