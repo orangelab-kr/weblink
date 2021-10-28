@@ -46,7 +46,7 @@ function getInterceptorResponseError(err) {
 }
 
 export function getAccessKey() {
-  const sessionId = localStorage.getItem('weblinkSessionId');
+  const sessionId = localStorage.getItem('weblink-session-id');
   if (!sessionId) return;
   return `Bearer ${sessionId}`;
 }
