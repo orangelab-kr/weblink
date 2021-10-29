@@ -5,3 +5,4 @@ export * from './Notification';
 export * from './PageHeader';
 export * from './RequiredAuth';
 export * from './Setting';
+export * from './Sidebar';

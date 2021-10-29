@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import { AuthAuthorize, Notification, RequiredAuth, Setting } from '.';
+import { AuthAuthorize, Notification, RequiredAuth, Setting, Sidebar } from '.';
 
 export * from './components';
 export * from './pages';
@@ -38,6 +38,9 @@ ReactDOM.render(
               </Route>
               <Route path="/notification">
                 <Notification />
+              </Route>
+              <Route path="/sidebar">
+                <Sidebar />
               </Route>
             </RequiredAuth>
           </Route>

@@ -20,7 +20,7 @@ export const NotificationList = ({
         threshold={60}
         onRefresh={onRefresh}
         pullingText={<DownOutline fontSize={22} />}
-        releaseText={<UpOutline fontSize={22} />}
+        canReleaseText={<UpOutline fontSize={22} />}
         refreshingText={<Loading style={{ fontSize: 22 }} />}
         completeText={<CheckOutline color="green" fontSize={22} />}
       >
@@ -42,7 +42,11 @@ export const NotificationList = ({
           ))}
       </PullToRefresh>
       <InfiniteScroll loadMore={loadMore} hasMore={hasMore}>
-        {!hasMore ? <Divider>모든 알림을 확인했습니다.</Divider> : <Loading />}
+        {!hasMore && notifications.length > 0 ? (
+          <Divider>모든 알림을 확인했습니다.</Divider>
+        ) : (
+          <Loading />
+        )}
       </InfiniteScroll>
     </>
   );
