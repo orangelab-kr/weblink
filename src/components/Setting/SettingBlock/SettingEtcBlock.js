@@ -1,5 +1,4 @@
 import { ExclamationCircleOutline, RightOutline } from 'antd-mobile-icons';
-import { Dialog } from 'antd-mobile';
 import styled from 'styled-components';
 import { SettingBlock, SettingItem } from '..';
 
@@ -16,17 +15,11 @@ export const SettingEtcBlock = () => {
           <RightOutline />
         </SettingItem>
       </Link>
-      <SettingItem
-        title="탈퇴"
-        onClick={() =>
-          Dialog.alert({
-            content: '고객센터로 문의바랍니다.',
-            confirmText: '확인',
-          })
-        }
-      >
-        <RightOutline />
-      </SettingItem>
+      <Link href="/secession">
+        <SettingItem title="탈퇴">
+          <RightOutline />
+        </SettingItem>
+      </Link>
     </SettingBlock>
   );
 };

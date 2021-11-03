@@ -12,7 +12,7 @@ export const SidebarSecondaryButton = ({ name, icon, href }) => {
 
   return (
     <Button onClick={onClick}>
-      {icon} {name}
+      {name} {icon}
     </Button>
   );
 };

@@ -1,9 +1,19 @@
 import { LeftOutline } from 'antd-mobile-icons';
+import { withRouter } from 'react-router';
 
-export const DepthPage = ({ children }) => {
+export const DepthPage = withRouter(({ children, history }) => {
+  const onClick = () => {
+    setTimeout(() => {
+      window.location.href = 'hikick://weblink/close';
+    }, 100);
+
+    history.goBack();
+  };
+
   return (
     <>
       <div
+        onClick={onClick}
         style={{
           backgroundColor: 'white',
           paddingTop: 20,
@@ -20,4 +30,4 @@ export const DepthPage = ({ children }) => {
       <div style={{ marginTop: 65 }}>{children}</div>
     </>
   );
-};
+});
