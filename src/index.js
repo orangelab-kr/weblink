@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { Reset } from 'styled-reset';
 import {
   AuthAuthorize,
+  Debug,
   Notification,
   RequiredAuth,
   Secession,
@@ -37,6 +38,9 @@ ReactDOM.render(
         <Switch>
           <Route path="/auth/authorize">
             <AuthAuthorize />
+          </Route>
+          <Route path="/debug">
+            <Debug />
           </Route>
           <Route path="/">
             <RequiredAuth>
