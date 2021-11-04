@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Redirect, withRouter } from 'react-router';
+import { Redirect } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { Client, FullScreenLoading, ToastError, useQuery } from '../..';
 
 export const AuthAuthorize = withRouter(() => {
