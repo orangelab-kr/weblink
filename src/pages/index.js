@@ -1,5 +1,6 @@
 export * from './auth';
 export * from './Debug';
+export * from './Level';
 export * from './Notification';
 export * from './Secession';
 export * from './Setting';

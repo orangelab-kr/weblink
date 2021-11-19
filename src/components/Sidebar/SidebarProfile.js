@@ -2,7 +2,7 @@ import { Image } from 'antd-mobile';
 import styled from 'styled-components';
 
 const NameContainer = styled.p`
-  margin: 20px 0 50px;
+  margin-top: 20px;
   font-size: 25px;
   font-weight: 600;
 `;

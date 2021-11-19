@@ -1,6 +1,7 @@
 import {
   ChatCheckOutline,
   CouponOutline,
+  FileOutline,
   RightOutline,
   SetOutline,
   SoundOutline,
@@ -11,6 +12,7 @@ import styled from 'styled-components';
 import {
   Client,
   FullScreenLoading,
+  SidebarLevel,
   SidebarPrimaryButton,
   SidebarPrimaryMenu,
   SidebarProfile,
@@ -36,6 +38,7 @@ export const Sidebar = () => {
     <FullScreenLoading loading={loading}>
       <MainContainer>
         <SidebarProfile user={user} />
+        <SidebarLevel />
         <SidebarPrimaryMenu>
           <SidebarPrimaryButton
             name="라이드 기록"
@@ -46,6 +49,11 @@ export const Sidebar = () => {
             name="쿠폰"
             icon={<CouponOutline />}
             href="hikick://coupons"
+          />
+          <SidebarPrimaryButton
+            name="패스"
+            icon={<FileOutline />}
+            href="hikick://webview/passes"
           />
           <SidebarPrimaryButton
             name="공지사항"

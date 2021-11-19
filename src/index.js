@@ -6,7 +6,9 @@ import { Reset } from 'styled-reset';
 import {
   AuthAuthorize,
   Debug,
+  Level,
   Notification,
+  Pass,
   RequiredAuth,
   Secession,
   Setting,
@@ -44,6 +46,9 @@ ReactDOM.render(
           </Route>
           <Route path="/">
             <RequiredAuth>
+              <Route path="/level">
+                <Level />
+              </Route>
               <Route path="/setting">
                 <Setting />
               </Route>
