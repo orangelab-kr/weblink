@@ -55,6 +55,9 @@ ReactDOM.render(
               <Route path="/notification">
                 <Notification />
               </Route>
+              <Route path="/pass">
+                <Pass />
+              </Route>
               <Route path="/sidebar">
                 <Sidebar />
               </Route>

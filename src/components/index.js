@@ -3,6 +3,7 @@ export * from './EditableText';
 export * from './FullScreenLoading';
 export * from './Notification';
 export * from './PageHeader';
+export * from './Pass';
 export * from './RequiredAuth';
 export * from './Setting';
 export * from './Sidebar';
