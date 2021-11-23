@@ -50,7 +50,7 @@ export const PassMy = ({ pass, onRefresh }) => {
           loading={loading}
           onClick={onExtend}
         >
-          연장하기 {pass.passProgram.price.toLocaleString()}원 (
+          {pass.passProgram.price.toLocaleString()}원 연장 (
           {expiredAt.diff(dayjs(), 'd')}일 남음)
         </Button>
       ) : expiredAt.isAfter(dayjs()) ? (

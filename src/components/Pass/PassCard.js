@@ -21,12 +21,17 @@ export const PassCard = ({
   expiredAt,
   children,
   validity,
+  price,
 }) => {
   return (
     <PassContainer>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
         <PassTitle>{title}</PassTitle>
-        {validity && <p>{validity / 24 / 60 / 60}일</p>}
+        <p>
+          {validity && `${validity / 24 / 60 / 60}일`}
+          {validity && price && ' / '}
+          {price && `${price.toLocaleString()}원`}
+        </p>
       </div>
       {expiredAt && <p>{expiredAt.format('YYYY년 M월 D일까지')}</p>}
       <Divider />

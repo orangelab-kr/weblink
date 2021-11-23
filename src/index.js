@@ -9,6 +9,7 @@ import {
   Level,
   Notification,
   Pass,
+  PassPrograms,
   RequiredAuth,
   Secession,
   Setting,
@@ -55,8 +56,11 @@ ReactDOM.render(
               <Route path="/notification">
                 <Notification />
               </Route>
-              <Route path="/pass">
+              <Route path={['/pass', '/passPrograms']} exact>
                 <Pass />
+              </Route>
+              <Route path="/passPrograms/:passProgramId">
+                <PassPrograms />
               </Route>
               <Route path="/sidebar">
                 <Sidebar />

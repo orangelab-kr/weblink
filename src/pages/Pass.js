@@ -24,21 +24,25 @@ export const Pass = () => {
 
   return (
     <DepthPage>
-      <div style={{ marginLeft: 28, marginRight: 28 }}>
+      <div style={{ margin: '0 28px' }}>
         <PageHeader>패스</PageHeader>
-        <Tabs onChange={setTab} activeKey={tab}>
-          <Tabs.Tab title="내 패스" key="myPasses">
-            {myPasses.map((pass) => (
-              <PassMy pass={pass} onRefresh={getMyPasses} />
-            ))}
-          </Tabs.Tab>
-          <Tabs.Tab title="구매 가능한 패스" key="availablePasses">
-            {availablePasses.map((passProgram) => (
-              <PassAvailable passProgram={passProgram} setTab={setTab} />
-            ))}
-          </Tabs.Tab>
-        </Tabs>
       </div>
+      <Tabs onChange={setTab} activeKey={tab} style={{ margin: '0 12px' }}>
+        <Tabs.Tab title="내 패스" key="myPasses">
+          {myPasses.map((pass) => (
+            <PassMy pass={pass} onRefresh={getMyPasses} key={pass.passId} />
+          ))}
+        </Tabs.Tab>
+        <Tabs.Tab title="구매 가능한 패스" key="availablePasses">
+          {availablePasses.map((passProgram) => (
+            <PassAvailable
+              passProgram={passProgram}
+              setTab={setTab}
+              key={passProgram.passProgramId}
+            />
+          ))}
+        </Tabs.Tab>
+      </Tabs>
     </DepthPage>
   );
 };
