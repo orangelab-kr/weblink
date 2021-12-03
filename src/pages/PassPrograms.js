@@ -45,13 +45,6 @@ export const PassPrograms = withRouter(({ history }) => {
   }, [history, passProgramId]);
 
   const onPurchase = async (form) => {
-    if (!form.terms) {
-      return await Dialog.alert({
-        content: '이용약관을 동의해주세요.',
-        confirmText: '확인',
-      });
-    }
-
     setLoading(true);
     await Client.post(
       `/accounts/passPrograms/${passProgram.passProgramId}/purchase`,
