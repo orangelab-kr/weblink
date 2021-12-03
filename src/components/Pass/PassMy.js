@@ -25,6 +25,11 @@ export const PassMy = ({ pass, onRefresh }) => {
     await onRefresh();
   };
 
+  const onModifyPass = async (autoRenew) => {
+    await Client.post(`/accounts/passes/${pass.passId}`, { autoRenew });
+    await onRefresh();
+  };
+
   return (
     <PassCard
       title={pass.passProgram.name}
@@ -34,7 +39,8 @@ export const PassMy = ({ pass, onRefresh }) => {
     >
       <Checkbox
         style={{ margin: '10px 0' }}
-        disabled={pass.passProgram.allowRenew}
+        disabled={!pass.passProgram.allowRenew}
+        onChange={onModifyPass}
       >
         자동 연장
       </Checkbox>
@@ -51,11 +57,11 @@ export const PassMy = ({ pass, onRefresh }) => {
           onClick={onExtend}
         >
           {pass.passProgram.price.toLocaleString()}원 연장 (
-          {expiredAt.diff(dayjs(), 'd')}일 남음)
+          {expiredAt.diff(dayjs(), 'd')}일 만료)
         </Button>
       ) : expiredAt.isAfter(dayjs()) ? (
         <Button block={true} color="warning" disabled>
-          구매 완료 ({expiredAt.diff(dayjs(), 'd')}일 남음)
+          구매 완료 ({expiredAt.diff(dayjs(), 'd')}일 만료)
         </Button>
       ) : (
         <Button block={true} color="danger" disabled>
