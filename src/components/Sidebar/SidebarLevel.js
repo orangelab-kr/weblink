@@ -1,9 +1,16 @@
-import styled from 'styled-components';
 import { ProgressBar } from 'antd-mobile';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import styled from 'styled-components';
+import { Client, LevelDescription } from '../..';
 
-const LevelDescription = styled.p`
-  margin: 6px 0;
+const ProgressBarText = styled.div`
+  position: absolute;
+  margin: 4px 0px 0px 10px;
+  color: white;
   font-size: 14px;
+  font-weight: 400;
+  text-shadow: ${({ color }) =>
+    `-1px 0 ${color}, 0 1px ${color}, 1px 0 ${color}, 0 -1px ${color}`};
 `;
 
 const Bold = styled.b`
@@ -11,31 +18,54 @@ const Bold = styled.b`
 `;
 
 export const SidebarLevel = () => {
-  const onClick = () => (window.location.href = 'hikick://weblink/level');
+  const [point, setPoint] = useState(0);
+  const [level, setLevel] = useState(null);
+  const [levels, setLevels] = useState([]);
+  const nextLevel = useMemo(() => {
+    if (level === null || levels.length <= 0) return;
+    const idx = levels.findIndex((l) => l.levelNo === level.levelNo);
+    return levels[idx + 1];
+  }, [level, levels]);
 
+  const onClick = () => (window.location.href = 'hikick://weblink/level');
+  const getLevel = useCallback(async () => {
+    const { data } = await Client.get('/accounts/level');
+    setLevel(data.level);
+    setPoint(data.point);
+  }, []);
+
+  const getAllLevels = useCallback(async () => {
+    const { data } = await Client.get('/accounts/level/all');
+    setLevels(data.levels);
+  }, []);
+
+  const progressLevel = useMemo(() => {
+    if (!level || point === null) return 0;
+    const maxPoint = nextLevel ? nextLevel.requiredPoint : level.requiredPoint;
+    const percentage = Math.round((100 * point) / maxPoint);
+    return Math.min(percentage, 100);
+  }, [level, nextLevel, point]);
+
+  useEffect(() => getLevel(), [getLevel]);
+  useEffect(() => getAllLevels(), [getAllLevels]);
+  if (level === null) return <></>;
   return (
     <div onClick={onClick}>
-      <LevelDescription>
-        다음 <Bold>블루</Bold> 레벨까지 <Bold>3개</Bold> 남았습니다.
-      </LevelDescription>
+      <LevelDescription
+        point={point}
+        level={level}
+        levels={levels}
+        nextLevel={nextLevel}
+      />
       <div style={{ position: 'relative' }}>
-        <div
-          style={{
-            position: 'absolute',
-            margin: '4px 0px 0px 10px',
-            color: 'white',
-            fontSize: 14,
-            fontWeight: 400,
-            textShadow: '-1px 0 green, 0 1px green, 1px 0 green, 0 -1px green',
-          }}
-        >
-          그린 레벨
-        </div>
+        <ProgressBarText color={level.color}>
+          <Bold>{progressLevel}%</Bold> / {level.name} 레벨
+        </ProgressBarText>
         <ProgressBar
-          percent={10}
+          percent={progressLevel}
           style={{
             '--track-width': '20px',
-            '--fill-color': 'green',
+            '--fill-color': level.color,
           }}
         />
       </div>

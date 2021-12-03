@@ -2,6 +2,7 @@ export * from './CardSelect';
 export * from './DepthPage';
 export * from './EditableText';
 export * from './FullScreenLoading';
+export * from './LevelDescription';
 export * from './Notification';
 export * from './PageHeader';
 export * from './Pass';
