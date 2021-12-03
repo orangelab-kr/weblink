@@ -15,9 +15,7 @@ export const CardSelect = ({ value, onChange }) => {
   useEffect(() => onChange && onChange(card[0]), [card, onChange]);
   useEffect(() => {
     if (value || cards.length <= 0) return;
-    console.log(cards);
     setCard([cards[0].cardId]);
-    console.log('hi');
   }, [cards, value]);
 
   return (
