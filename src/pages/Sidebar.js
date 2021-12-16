@@ -6,6 +6,7 @@ import {
   SetOutline,
   SoundOutline,
   UnorderedListOutline,
+  UserAddOutline,
 } from 'antd-mobile-icons';
 import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
@@ -54,6 +55,11 @@ export const Sidebar = () => {
             name="패스"
             icon={<FileOutline />}
             href="hikick://webview/passes"
+          />
+          <SidebarPrimaryButton
+            name="초대하기⁺"
+            icon={<UserAddOutline />}
+            href="hikick://webview/referral"
           />
           <SidebarPrimaryButton
             name="공지사항"

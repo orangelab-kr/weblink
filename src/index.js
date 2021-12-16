@@ -10,6 +10,7 @@ import {
   Notification,
   Pass,
   PassPrograms,
+  Referral,
   RequiredAuth,
   Secession,
   Setting,
@@ -58,6 +59,9 @@ ReactDOM.render(
               </Route>
               <Route path={['/pass', '/passPrograms']} exact>
                 <Pass />
+              </Route>
+              <Route path={'/referral'} exact>
+                <Referral />
               </Route>
               <Route path="/passPrograms/:passProgramId">
                 <PassPrograms />
