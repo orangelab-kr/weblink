@@ -1,12 +1,12 @@
 import { Picker } from 'antd-mobile';
 import { useEffect, useState } from 'react';
 import { SettingItem } from '.';
-import { Client } from '..';
+import { Client, useToggle } from '..';
 
 export const CardSelect = ({ value, onChange }) => {
   const [cards, setCards] = useState([]);
   const [card, setCard] = useState([]);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useToggle(false);
 
   const getCards = () =>
     Client.get('/payments/cards').then(({ data }) => setCards(data.cards));
@@ -20,12 +20,12 @@ export const CardSelect = ({ value, onChange }) => {
 
   return (
     <>
-      <SettingItem onClick={() => setVisible(true)} title="카드 선택">
+      <SettingItem onClick={setVisible(true)} title="카드 선택">
         {card && cards && cards.find((c) => c.cardId === card[0])?.cardName}
       </SettingItem>
       <Picker
         visible={visible}
-        onClose={() => setVisible(false)}
+        onClose={setVisible(false)}
         value={card}
         onConfirm={setCard}
         cancelText="취소"
