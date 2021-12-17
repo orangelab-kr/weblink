@@ -26,7 +26,8 @@ export const Referral = () => {
 
     try {
       setLoading(true);
-      await Client.post('/accounts/referral', data);
+      const referralCode = data.referralCode.toUpperCase();
+      await Client.post('/accounts/referral', { referralCode });
       await loadUser();
     } finally {
       setLoading(false);
