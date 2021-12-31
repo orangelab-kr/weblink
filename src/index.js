@@ -10,6 +10,7 @@ import {
   Notification,
   Pass,
   PassPrograms,
+  Pay,
   Referral,
   RequiredAuth,
   Secession,
@@ -71,6 +72,9 @@ ReactDOM.render(
               </Route>
               <Route path="/secession">
                 <Secession />
+              </Route>
+              <Route path="/pay">
+                <Pay />
               </Route>
             </RequiredAuth>
           </Route>
