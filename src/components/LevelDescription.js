@@ -13,8 +13,9 @@ const Bold = styled.b`
 export const LevelDescription = ({ level, point, nextLevel }) => {
   const requiredPoint = useMemo(() => {
     if (!level) return;
-    let nextLevelRequiredPoint = 0;
-    if (nextLevel) Math.max(0, nextLevel.requiredPoint - point);
+    let nextLevelRequiredPoint = nextLevel
+      ? Math.max(0, nextLevel.requiredPoint - point)
+      : 0;
     const levelRequiredPoint = Math.max(0, level.requiredPoint - point);
     return nextLevelRequiredPoint || levelRequiredPoint;
   }, [level, nextLevel, point]);
