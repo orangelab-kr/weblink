@@ -1,4 +1,5 @@
 import {
+  BankcardOutline,
   ChatCheckOutline,
   CouponOutline,
   FileOutline,
@@ -45,6 +46,11 @@ export const Sidebar = () => {
             name="라이드 기록"
             icon={<UnorderedListOutline />}
             href="hikick://rides"
+          />
+          <SidebarPrimaryButton
+            name="카드"
+            icon={<BankcardOutline />}
+            href="hikick://payments"
           />
           <SidebarPrimaryButton
             name="쿠폰"
