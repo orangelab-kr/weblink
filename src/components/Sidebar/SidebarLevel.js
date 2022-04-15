@@ -28,7 +28,7 @@ export const SidebarLevel = () => {
     return levels[idx + 1];
   }, [level, levels]);
 
-  const onClick = () => (window.location.href = 'hikick://weblink/level');
+  const onClick = () => (window.location.href = 'hikick://weblink?page=level');
   const getLevel = useCallback(async () => {
     const { data } = await Client.get('/accounts/level');
     setLevel(data.level);

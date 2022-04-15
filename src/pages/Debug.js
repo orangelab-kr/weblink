@@ -47,37 +47,31 @@ export const Debug = () => {
       icon: <AddOutline />,
       color: 'success',
       name: '애플 연동',
-      href: 'hikick://methods/apple/connect',
+      href: 'hikick://methods?provider=apple&action=connect',
     },
     {
       icon: <MinusOutline />,
       color: 'danger',
       name: '카카오 연동해제',
-      href: 'hikick://methods/kakao/disconnect',
+      href: 'hikick://methods?provider=kakao&action=disconnect',
     },
     {
       icon: <MinusOutline />,
       color: 'danger',
       name: '애플 연동해제',
-      href: 'hikick://methods/apple/disconnect',
+      href: 'hikick://methods?provider=apple&action=disconnect',
     },
     {
       icon: <ChatCheckOutline />,
       color: 'primary',
       name: '채널톡',
-      href: 'hikick://weblink/channeltalk',
+      href: 'hikick://weblink?page=channeltalk',
     },
     {
       icon: <RightOutline />,
       color: 'danger',
       name: '로그아웃',
-      href: 'hikick://auth/logout',
-    },
-    {
-      icon: <CloseOutline />,
-      color: 'danger',
-      name: '웹뷰 닫기',
-      href: 'hikick://weblink?action=close',
+      href: 'hikick://auth?action=logout',
     },
   ];
 

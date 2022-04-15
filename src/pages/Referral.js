@@ -69,7 +69,7 @@ export const Referral = () => {
             <p
               style={{
                 fontSize: 20,
-                fontWeight: 700,
+                fontWeight: 500,
                 marginBottom: 10,
               }}
             >
@@ -86,7 +86,7 @@ export const Referral = () => {
             >
               {user.referralCode.toUpperCase()}
             </p>
-            <p style={{ marginTop: 15, fontSize: 13 }}>
+            <p style={{ marginTop: 15, fontSize: 15 }}>
               초대코드를 클릭하여 복사하세요.
             </p>
           </div>

@@ -58,22 +58,22 @@ export const Sidebar = () => {
           <SidebarPrimaryButton
             name='패스'
             icon={<FileOutline />}
-            href='hikick://webview/passes'
+            href='hikick://weblink?page=pass'
           />
           <SidebarPrimaryButton
             name='초대하기⁺'
             icon={<UserAddOutline />}
-            href='hikick://webview/referral'
+            href='hikick://weblink?page=referral'
           />
           <SidebarPrimaryButton
             name='공지사항'
             icon={<SoundOutline />}
-            href='hikick://weblink/notices'
+            href='hikick://weblink?page=notices'
           />
           <SidebarPrimaryButton
             name='설정'
             icon={<SetOutline />}
-            href='hikick://weblink/Settingss'
+            href='hikick://weblink?page=settings'
           />
         </SidebarPrimaryMenu>
         <SidebarSecondaryMenu>
