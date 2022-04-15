@@ -2,7 +2,6 @@ import { Button } from 'antd-mobile';
 import {
   AddOutline,
   ChatCheckOutline,
-  CloseOutline,
   MinusOutline,
   RightOutline,
   SetOutline,

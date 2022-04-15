@@ -52,15 +52,9 @@ export const SidebarLevel = () => {
   if (level === null) return <></>;
   return (
     <div onClick={onClick}>
-      <LevelDescription
-        point={point}
-        level={level}
-        levels={levels}
-        nextLevel={nextLevel}
-      />
-      <div style={{ position: 'relative' }}>
+      <div style={{ position: 'relative', marginTop: 5 }}>
         <ProgressBarText color={level.color}>
-          <Bold>{progressLevel}%</Bold> / {level.name} 레벨
+          <Bold>{progressLevel}%</Bold> / {level.name}
         </ProgressBarText>
         <ProgressBar
           percent={progressLevel}
@@ -70,6 +64,12 @@ export const SidebarLevel = () => {
           }}
         />
       </div>
+      <LevelDescription
+        point={point}
+        level={level}
+        levels={levels}
+        nextLevel={nextLevel}
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const LevelMessage = styled.p`
   margin: 6px 0;
-  font-size: 14px;
+  font-size: 16px;
 `;
 
 const Bold = styled.b`

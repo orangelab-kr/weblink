@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 const Button = styled.p`
-  padding: 15px 0px;
+  padding: 0.7em 0px;
+  font-size: 01em;
   &:active {
     opacity: 0.5;
   }
