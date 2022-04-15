@@ -1,7 +1,8 @@
 import { Button, Checkbox, Dialog } from 'antd-mobile';
 import dayjs from 'dayjs';
 import { useState } from 'react';
-import { Client, PassCard } from '../..';
+import { Client } from '../../tools/client';
+import { PassCard } from './PassCard';
 
 export const PassMy = ({ pass, onRefresh }) => {
   const [loading, setLoading] = useState(false);
@@ -51,8 +52,8 @@ export const PassMy = ({ pass, onRefresh }) => {
       pass.passProgram.price ? (
         <Button
           block={true}
-          color="success"
-          loadingText="연장을 진행하고 있습니다."
+          color='success'
+          loadingText='연장을 진행하고 있습니다.'
           loading={loading}
           onClick={onExtend}
         >
@@ -60,11 +61,11 @@ export const PassMy = ({ pass, onRefresh }) => {
           {expiredAt.diff(dayjs(), 'd')}일 만료)
         </Button>
       ) : expiredAt.isAfter(dayjs()) ? (
-        <Button block={true} color="warning" disabled>
+        <Button block={true} color='warning' disabled>
           구매 완료 ({expiredAt.diff(dayjs(), 'd')}일 만료)
         </Button>
       ) : (
-        <Button block={true} color="danger" disabled>
+        <Button block={true} color='danger' disabled>
           만료됨
         </Button>
       )}

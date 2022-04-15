@@ -1,6 +1,8 @@
 import { Button, Checkbox, Selector } from 'antd-mobile';
 import styled from 'styled-components';
-import { Client, DepthPage, PageHeader } from '..';
+import { DepthPage } from '../components/DepthPage';
+import { PageHeader } from '../components/PageHeader';
+import { Client } from '../tools/client';
 
 const MessageContainer = styled.div`
   background-color: #eee;
@@ -62,7 +64,7 @@ export const Secession = () => {
           </ConfirmMessage>
         </ConfirmContainer>
         <SecessionButton>
-          <Button color="danger" block={true} onClick={onSecession}>
+          <Button color='danger' block={true} onClick={onSecession}>
             탈퇴
           </Button>
         </SecessionButton>

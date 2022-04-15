@@ -9,14 +9,12 @@ import ReactMarkdown from 'react-markdown';
 import { useParams, withRouter } from 'react-router';
 import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
-import {
-  CardSelect,
-  Client,
-  DepthPage,
-  PageHeader,
-  SettingBlock,
-  SettingItem,
-} from '..';
+import { CardSelect } from '../components/CardSelect';
+import { DepthPage } from '../components/DepthPage';
+import { PageHeader } from '../components/PageHeader';
+import { SettingBlock } from '../components/Setting/SettingBlock/SettingBlock';
+import { SettingItem } from '../components/Setting/SettingItem/SettingItem';
+import { Client } from '../tools/client';
 
 const NoborderForm = styled(Form)`
   .adm-list-default {
@@ -68,7 +66,7 @@ export const PassPrograms = withRouter(({ history }) => {
       </div>
       <NoborderForm onFinish={onPurchase} style={{ border: 'none' }}>
         {passProgram && passProgram.description && (
-          <SettingBlock icon={<FileOutline />} title="패스 정보">
+          <SettingBlock icon={<FileOutline />} title='패스 정보'>
             <ReactMarkdown
               children={passProgram.description}
               remarkPlugins={[remarkGfm]}
@@ -76,12 +74,12 @@ export const PassPrograms = withRouter(({ history }) => {
           </SettingBlock>
         )}
 
-        <SettingBlock icon={<BankcardOutline />} title="결제 수단">
-          <Form.Item name="cardId" noStyle>
+        <SettingBlock icon={<BankcardOutline />} title='결제 수단'>
+          <Form.Item name='cardId' noStyle>
             <CardSelect />
           </Form.Item>
-          <SettingItem title="자동 연장">
-            <Form.Item name="autoRenew" noStyle>
+          <SettingItem title='자동 연장'>
+            <Form.Item name='autoRenew' noStyle>
               <Checkbox />
             </Form.Item>
           </SettingItem>
@@ -111,19 +109,19 @@ export const PassPrograms = withRouter(({ history }) => {
             }}
           >
             구매시{' '}
-            <a href="https://i.hikick.kr/7572f609-29c1-4f3e-af18-4e5eb885e2f0">
+            <a href='https://i.hikick.kr/7572f609-29c1-4f3e-af18-4e5eb885e2f0'>
               하이킥 패스 추가 이용약관
             </a>
             에 동의하는 것으로 간주됩니다.
           </p>
           <Button
-            size="large"
-            type="submit"
-            color="primary"
+            size='large'
+            type='submit'
+            color='primary'
             block={true}
             icon={<HandPayCircleOutline />}
             loading={loading}
-            loadingText="구매를 진행하고 있습니다."
+            loadingText='구매를 진행하고 있습니다.'
             style={{
               borderRadius: 15,
             }}

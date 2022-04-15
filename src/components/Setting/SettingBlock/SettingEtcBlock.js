@@ -1,6 +1,7 @@
 import { ExclamationCircleOutline, RightOutline } from 'antd-mobile-icons';
 import styled from 'styled-components';
-import { SettingBlock, SettingItem } from '..';
+import { SettingItem } from '../SettingItem/SettingItem';
+import { SettingBlock } from './SettingBlock';
 
 const Link = styled.a`
   text-decoration: none;
@@ -9,14 +10,14 @@ const Link = styled.a`
 
 export const SettingEtcBlock = () => {
   return (
-    <SettingBlock icon={<ExclamationCircleOutline />} title="기타">
-      <Link href="hikick://auth/logout">
-        <SettingItem title="로그아웃">
+    <SettingBlock icon={<ExclamationCircleOutline />} title='기타'>
+      <Link href='hikick://auth/logout'>
+        <SettingItem title='로그아웃'>
           <RightOutline />
         </SettingItem>
       </Link>
-      <Link href="/secession">
-        <SettingItem title="탈퇴">
+      <Link href='/secession'>
+        <SettingItem title='탈퇴'>
           <RightOutline />
         </SettingItem>
       </Link>

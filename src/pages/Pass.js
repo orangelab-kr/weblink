@@ -1,6 +1,10 @@
 import { Tabs } from 'antd-mobile';
 import { useCallback, useEffect, useState } from 'react';
-import { Client, DepthPage, PageHeader, PassAvailable, PassMy } from '..';
+import { DepthPage } from '../components/DepthPage';
+import { PageHeader } from '../components/PageHeader';
+import { Client } from '../tools/client';
+import { PassMy } from '../components/Pass/PassMy';
+import { PassAvailable } from '../components/Pass/PassAvailable';
 
 export const Pass = () => {
   const [tab, setTab] = useState('myPasses');
@@ -28,12 +32,12 @@ export const Pass = () => {
         <PageHeader>패스</PageHeader>
       </div>
       <Tabs onChange={setTab} activeKey={tab} style={{ margin: '0 12px' }}>
-        <Tabs.Tab title="내 패스" key="myPasses">
+        <Tabs.Tab title='내 패스' key='myPasses'>
           {myPasses.map((pass) => (
             <PassMy pass={pass} onRefresh={getMyPasses} key={pass.passId} />
           ))}
         </Tabs.Tab>
-        <Tabs.Tab title="구매 가능한 패스" key="availablePasses">
+        <Tabs.Tab title='구매 가능한 패스' key='availablePasses'>
           {availablePasses.map((passProgram) => (
             <PassAvailable
               passProgram={passProgram}

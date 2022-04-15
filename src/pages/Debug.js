@@ -9,7 +9,7 @@ import {
   SoundOutline,
   UnorderedListOutline,
 } from 'antd-mobile-icons';
-import { PageHeader } from '..';
+import { PageHeader } from '../components/PageHeader';
 
 export const Debug = () => {
   const buttons = [
@@ -29,19 +29,19 @@ export const Debug = () => {
       icon: <SoundOutline />,
       color: 'warning',
       name: '공지사항',
-      href: 'hikick://weblink/notices',
+      href: 'hikick://weblink?page=notices',
     },
     {
       icon: <SetOutline />,
       color: 'primary',
       name: '설정',
-      href: 'hikick://weblink/setting',
+      href: 'hikick://weblink?page=settings',
     },
     {
       icon: <AddOutline />,
       color: 'success',
       name: '카카오 연동',
-      href: 'hikick://methods/kakao/connect',
+      href: 'hikick://methods?provider=kakao&action=connect',
     },
     {
       icon: <AddOutline />,
@@ -77,7 +77,7 @@ export const Debug = () => {
       icon: <CloseOutline />,
       color: 'danger',
       name: '웹뷰 닫기',
-      href: 'hikick://weblink/close',
+      href: 'hikick://weblink?action=close',
     },
   ];
 

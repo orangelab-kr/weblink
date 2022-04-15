@@ -8,7 +8,8 @@ import {
 } from 'antd-mobile';
 import { BankcardOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
-import { PageHeader, useToggle } from '..';
+import { PageHeader } from '../components/PageHeader';
+import { useToggle } from '../tools/useToggle';
 
 export const Pay = () => {
   const [expiryVisible, setExpiryVisible] = useToggle(false);
@@ -34,22 +35,22 @@ export const Pay = () => {
           <p style={{ fontSize: 15 }}>9,000원</p>
         </div>
         <Form initialValues={{ expiry: new Date() }}>
-          <Form.Item label="카드번호" style={{ '--padding-left': 0 }}>
-            <Input placeholder="XXXX-XXXX-XXXX-XXXX" />
+          <Form.Item label='카드번호' style={{ '--padding-left': 0 }}>
+            <Input placeholder='XXXX-XXXX-XXXX-XXXX' />
           </Form.Item>
           <Form.Item
-            label="유효기간"
-            name="expiry"
-            trigger="onConfirm"
+            label='유효기간'
+            name='expiry'
+            trigger='onConfirm'
             onClick={setExpiryVisible(true)}
             style={{ '--padding-left': 0 }}
           >
             <DatePicker
               visible={expiryVisible}
               min={new Date()}
-              precision="month"
-              cancelText="취소"
-              confirmText="선택"
+              precision='month'
+              cancelText='취소'
+              confirmText='선택'
               onConfirm={setExpiryVisible(false)}
               onCancel={setExpiryVisible(false)}
             >
@@ -57,13 +58,13 @@ export const Pay = () => {
             </DatePicker>
           </Form.Item>
           <Form.Item
-            label="주민등록번호 또는 사업자등록번호"
+            label='주민등록번호 또는 사업자등록번호'
             style={{ '--padding-left': 0 }}
           >
-            <Input maxLength={10} placeholder="XXXXXX / XXX-XX-XXXXX" />
+            <Input maxLength={10} placeholder='XXXXXX / XXX-XX-XXXXX' />
           </Form.Item>
           <Form.Item
-            label="비밀번호"
+            label='비밀번호'
             style={{
               '--padding-left': 0,
               '--border-inner': 'none',
@@ -82,7 +83,7 @@ export const Pay = () => {
           >
             카드 결제시 자동으로 계정에 카드가 등록되고 결제를 시도합니다.
           </p>
-          <Button color="primary" block>
+          <Button color='primary' block>
             <BankcardOutline /> 결제
           </Button>
         </Form>

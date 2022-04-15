@@ -1,7 +1,10 @@
 import { ProgressBar } from 'antd-mobile';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { Client, DepthPage, LevelDescription, PageHeader } from '..';
+import { DepthPage } from '../components/DepthPage';
+import { LevelDescription } from '../components/LevelDescription';
+import { PageHeader } from '../components/PageHeader';
+import { Client } from '../tools/client';
 
 const Bold = styled.b`
   font-weight: 800;
@@ -76,8 +79,8 @@ export const Level = () => {
         )}
 
         <iframe
-          title="level-notice"
-          src="https://i.hikick.kr/level"
+          title='level-notice'
+          src='https://i.hikick.kr/level'
           style={{ border: 0, height: '80vh', width: '100%' }}
         />
       </div>

@@ -1,6 +1,7 @@
 import { CloseOutline, LinkOutline, RightOutline } from 'antd-mobile-icons';
 import styled from 'styled-components';
-import { SettingBlock, SettingItem } from '..';
+import { SettingItem } from '../SettingItem/SettingItem';
+import { SettingBlock } from './SettingBlock';
 
 const MethodConnectButton = styled.a`
   font-weight: 600;
@@ -27,43 +28,43 @@ export const SettingMethodBlock = ({ user, methods }) => {
   return (
     <SettingBlock
       icon={<LinkOutline />}
-      title="인증수단"
-      description="인증수단을 연결하여 더 간편하게 로그인해보세요."
+      title='인증수단'
+      description='인증수단을 연결하여 더 간편하게 로그인해보세요.'
     >
       <SettingItem
-        title="카카오"
+        title='카카오'
         icon={
           <img
-            src="/assets/methods/kakao.svg"
+            src='/assets/methods/kakao.svg'
             style={{ objectFit: 'scale-down' }}
-            alt=""
+            alt=''
             height={16}
             width={16}
           />
         }
       >
         {!kakao ? (
-          <Connect provider="kakao" />
+          <Connect provider='kakao' />
         ) : (
-          <Disconnect provider="kakao" />
+          <Disconnect provider='kakao' />
         )}
       </SettingItem>
       <SettingItem
-        title="애플"
+        title='애플'
         icon={
           <img
-            src="/assets/methods/apple.svg"
+            src='/assets/methods/apple.svg'
             style={{ objectFit: 'scale-down' }}
-            alt=""
+            alt=''
             height={16}
             width={16}
           />
         }
       >
         {!apple ? (
-          <Connect provider="kakao" />
+          <Connect provider='kakao' />
         ) : (
-          <Disconnect provider="kakao" />
+          <Disconnect provider='kakao' />
         )}
       </SettingItem>
     </SettingBlock>

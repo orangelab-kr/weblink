@@ -1,7 +1,8 @@
 import { ProgressBar } from 'antd-mobile';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { Client, LevelDescription } from '../..';
+import { Client } from '../../tools/client';
+import { LevelDescription } from '../LevelDescription';
 
 const ProgressBarText = styled.div`
   position: absolute;

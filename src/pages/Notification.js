@@ -1,5 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Client, DepthPage, NotificationList, PageHeader } from '..';
+import { DepthPage } from '../components/DepthPage';
+import { Client } from '../tools/client';
+import { PageHeader } from '../components/PageHeader';
+import { NotificationList } from '../components/Notification/NotificationList';
 
 export const Notification = () => {
   const take = 10;

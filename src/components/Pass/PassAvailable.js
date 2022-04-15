@@ -1,6 +1,6 @@
 import { Button } from 'antd-mobile';
 import { withRouter } from 'react-router-dom';
-import { PassCard } from '../..';
+import { PassCard } from './PassCard';
 
 export const PassAvailable = withRouter(({ passProgram, history }) => {
   const onPurchase = () =>
@@ -15,7 +15,7 @@ export const PassAvailable = withRouter(({ passProgram, history }) => {
     >
       <Button
         block={true}
-        color="success"
+        color='success'
         style={{ margin: '10px 0' }}
         onClick={onPurchase}
       >

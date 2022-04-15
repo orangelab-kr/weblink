@@ -1,7 +1,8 @@
 import { Picker } from 'antd-mobile';
 import { useEffect, useState } from 'react';
-import { SettingItem } from '.';
-import { Client, useToggle } from '..';
+import { Client } from '../tools/client';
+import { useToggle } from '../tools/useToggle';
+import { SettingItem } from './Setting/SettingItem/SettingItem';
 
 export const CardSelect = ({ value, onChange }) => {
   const [cards, setCards] = useState([]);
@@ -20,7 +21,7 @@ export const CardSelect = ({ value, onChange }) => {
 
   return (
     <>
-      <SettingItem onClick={setVisible(true)} title="카드 선택">
+      <SettingItem onClick={setVisible(true)} title='카드 선택'>
         {card && cards && cards.find((c) => c.cardId === card[0])?.cardName}
       </SettingItem>
       <Picker
@@ -28,8 +29,8 @@ export const CardSelect = ({ value, onChange }) => {
         onClose={setVisible(false)}
         value={card}
         onConfirm={setCard}
-        cancelText="취소"
-        confirmText="선택"
+        cancelText='취소'
+        confirmText='선택'
         columns={[
           cards.map((card) => ({
             label: card.cardName,

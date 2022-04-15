@@ -3,24 +3,18 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import {
-  AuthAuthorize,
-  Debug,
-  Level,
-  Notification,
-  Pass,
-  PassPrograms,
-  Pay,
-  Referral,
-  RequiredAuth,
-  Secession,
-  Setting,
-  Sidebar,
-} from '.';
-
-export * from './components';
-export * from './pages';
-export * from './tools';
+import { Setting } from './pages/Setting';
+import { AuthAuthorize } from './pages/auth/Authorize';
+import { Level } from './pages/Level';
+import { Notification } from './pages/Notification';
+import { Pass } from './pages/Pass';
+import { Referral } from './pages/Referral';
+import { Secession } from './pages/Secession';
+import { Sidebar } from './pages/Sidebar';
+import { Pay } from './pages/Pay';
+import { PassPrograms } from './pages/PassPrograms';
+import { Debug } from './pages/Debug';
+import { RequiredAuth } from './components/RequiredAuth';
 
 export const baseURL =
   window.location.host === 'weblink.hikick.kr'
@@ -41,21 +35,21 @@ ReactDOM.render(
     <GlobalStyle>
       <BrowserRouter>
         <Switch>
-          <Route path="/auth/authorize">
+          <Route path='/auth/authorize'>
             <AuthAuthorize />
           </Route>
-          <Route path="/debug">
+          <Route path='/debug'>
             <Debug />
           </Route>
-          <Route path="/">
+          <Route path='/'>
             <RequiredAuth>
-              <Route path="/level">
+              <Route path='/level'>
                 <Level />
               </Route>
-              <Route path="/setting">
+              <Route path='/setting'>
                 <Setting />
               </Route>
-              <Route path="/notification">
+              <Route path='/notification'>
                 <Notification />
               </Route>
               <Route path={['/pass', '/passPrograms']} exact>
@@ -64,16 +58,16 @@ ReactDOM.render(
               <Route path={'/referral'} exact>
                 <Referral />
               </Route>
-              <Route path="/passPrograms/:passProgramId">
+              <Route path='/passPrograms/:passProgramId'>
                 <PassPrograms />
               </Route>
-              <Route path="/sidebar">
+              <Route path='/sidebar'>
                 <Sidebar />
               </Route>
-              <Route path="/secession">
+              <Route path='/secession'>
                 <Secession />
               </Route>
-              <Route path="/pay">
+              <Route path='/pay'>
                 <Pay />
               </Route>
             </RequiredAuth>

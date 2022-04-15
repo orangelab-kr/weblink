@@ -1,14 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
-import {
-  Client,
-  DepthPage,
-  FullScreenLoading,
-  SettingEtcBlock,
-  SettingInfoBlock,
-  SettingMethodBlock,
-  SettingProfileBlock,
-  SettingReceiveBlock,
-} from '..';
+import { Client } from '../tools/client';
+import { FullScreenLoading } from '../components/FullScreenLoading';
+import { DepthPage } from '../components/DepthPage';
+import { SettingProfileBlock } from '../components/Setting/SettingBlock/SettingProfileBlock';
+import { SettingInfoBlock } from '../components/Setting/SettingBlock/SettingInfoBlock';
+import { SettingMethodBlock } from '../components/Setting/SettingBlock/SettingMethodBlock';
+import { SettingReceiveBlock } from '../components/Setting/SettingBlock/SettingReceiveBlock';
+import { SettingEtcBlock } from '../components/Setting/SettingBlock/SettingEtcBlock';
 
 export const Setting = () => {
   const [loading, setLoading] = useState(true);

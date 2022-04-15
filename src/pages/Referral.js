@@ -3,7 +3,9 @@ import { UserAddOutline } from 'antd-mobile-icons';
 import copy from 'copy-to-clipboard';
 import RCForm from 'rc-field-form';
 import { useCallback, useEffect, useState } from 'react';
-import { Client, DepthPage, PageHeader } from '..';
+import { DepthPage } from '../components/DepthPage';
+import { PageHeader } from '../components/PageHeader';
+import { Client } from '../tools/client';
 
 export const Referral = () => {
   const [loading, setLoading] = useState(true);
@@ -115,10 +117,10 @@ export const Referral = () => {
                   padding: 10,
                 }}
               >
-                <Form.Item name="referralCode" noStyle>
+                <Form.Item name='referralCode' noStyle>
                   <Input
                     maxLength={6}
-                    placeholder="초대 코드"
+                    placeholder='초대 코드'
                     style={{
                       width: '30%',
                       textAlign: 'center',
@@ -126,7 +128,7 @@ export const Referral = () => {
                     }}
                   />
                 </Form.Item>
-                <Button color="success" size="large" type="submit">
+                <Button color='success' size='large' type='submit'>
                   <UserAddOutline /> 등록
                 </Button>
               </RCForm>

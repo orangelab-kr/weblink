@@ -1,6 +1,6 @@
 import { Image } from 'antd-mobile';
 import { useRef } from 'react';
-import { Client } from '../../..';
+import { Client } from '../../../tools/client';
 
 export const SettingProfileBlock = ({ user, updateUser }) => {
   const imageRef = useRef(null);
@@ -24,7 +24,7 @@ export const SettingProfileBlock = ({ user, updateUser }) => {
         <Image
           width={100}
           height={100}
-          fit="cover"
+          fit='cover'
           src={user.profileUrl || '/assets/user.png'}
           style={{ borderRadius: 100 }}
           onClick={onSelectImage}
@@ -49,8 +49,8 @@ export const SettingProfileBlock = ({ user, updateUser }) => {
           </p>
         </div>
         <input
-          type="file"
-          accept="image/*"
+          type='file'
+          accept='image/*'
           style={{ display: 'none' }}
           onChange={onChangeImage}
           ref={imageRef}

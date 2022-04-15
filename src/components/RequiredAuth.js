@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Client, FullScreenLoading } from '..';
+import { Client } from '../tools/client';
+import { FullScreenLoading } from './FullScreenLoading';
 
 export const RequiredAuth = ({ children }) => {
   const [loading, setLoading] = useState(true);

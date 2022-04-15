@@ -1,7 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
 import { withRouter } from 'react-router-dom';
-import { Client, FullScreenLoading, ToastError, useQuery } from '../..';
+import { FullScreenLoading } from '../../components/FullScreenLoading';
+import { Client, ToastError } from '../../tools/client';
+import { useQuery } from '../../tools/useQuery';
 
 export const AuthAuthorize = withRouter(() => {
   const { sessionId, redirect } = useQuery();
