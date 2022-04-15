@@ -10,7 +10,6 @@ import { useParams, withRouter } from 'react-router';
 import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 import { CardSelect } from '../components/CardSelect';
-import { DepthPage } from '../components/DepthPage';
 import { PageHeader } from '../components/PageHeader';
 import { SettingBlock } from '../components/Setting/SettingBlock/SettingBlock';
 import { SettingItem } from '../components/Setting/SettingItem/SettingItem';
@@ -60,7 +59,7 @@ export const PassPrograms = withRouter(({ history }) => {
 
   useEffect(() => loadPassProgram(), [loadPassProgram]);
   return (
-    <DepthPage>
+    <div>
       <div style={{ margin: '0 28px' }}>
         <PageHeader>{passProgram && passProgram.name}</PageHeader>
       </div>
@@ -133,6 +132,6 @@ export const PassPrograms = withRouter(({ history }) => {
           </Button>
         </div>
       </NoborderForm>
-    </DepthPage>
+    </div>
   );
 });

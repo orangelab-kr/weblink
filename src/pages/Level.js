@@ -1,7 +1,6 @@
 import { ProgressBar } from 'antd-mobile';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import styled from 'styled-components';
-import { DepthPage } from '../components/DepthPage';
 import { LevelDescription } from '../components/LevelDescription';
 import { PageHeader } from '../components/PageHeader';
 import { Client } from '../tools/client';
@@ -52,38 +51,36 @@ export const Level = () => {
   useEffect(() => getAllLevels(), [getAllLevels]);
 
   return (
-    <DepthPage>
-      <div style={{ marginLeft: 28, marginRight: 28 }}>
-        <PageHeader>레벨</PageHeader>
-        {level && (
-          <>
-            <div style={{ position: 'relative' }}>
-              <ProgressBarText color={level.color}>
-                <Bold>{progressLevel}%</Bold> / {level.name} 레벨
-              </ProgressBarText>
-              <ProgressBar
-                percent={progressLevel}
-                style={{
-                  '--track-width': '20px',
-                  '--fill-color': level.color,
-                }}
-              />
-            </div>
-            <LevelDescription
-              point={point}
-              level={level}
-              levels={levels}
-              nextLevel={nextLevel}
+    <div style={{ marginLeft: 28, marginRight: 28 }}>
+      <PageHeader>레벨</PageHeader>
+      {level && (
+        <>
+          <div style={{ position: 'relative' }}>
+            <ProgressBarText color={level.color}>
+              <Bold>{progressLevel}%</Bold> / {level.name} 레벨
+            </ProgressBarText>
+            <ProgressBar
+              percent={progressLevel}
+              style={{
+                '--track-width': '20px',
+                '--fill-color': level.color,
+              }}
             />
-          </>
-        )}
+          </div>
+          <LevelDescription
+            point={point}
+            level={level}
+            levels={levels}
+            nextLevel={nextLevel}
+          />
+        </>
+      )}
 
-        <iframe
-          title='level-notice'
-          src='https://i.hikick.kr/level'
-          style={{ border: 0, height: '80vh', width: '100%' }}
-        />
-      </div>
-    </DepthPage>
+      <iframe
+        title='level-notice'
+        src='https://i.hikick.kr/level'
+        style={{ border: 0, height: '80vh', width: '100%' }}
+      />
+    </div>
   );
 };

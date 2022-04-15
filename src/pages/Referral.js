@@ -3,7 +3,6 @@ import { UserAddOutline } from 'antd-mobile-icons';
 import copy from 'copy-to-clipboard';
 import RCForm from 'rc-field-form';
 import { useCallback, useEffect, useState } from 'react';
-import { DepthPage } from '../components/DepthPage';
 import { PageHeader } from '../components/PageHeader';
 import { Client } from '../tools/client';
 
@@ -44,7 +43,8 @@ export const Referral = () => {
   useEffect(() => loadUser(), [loadUser, setLoading]);
   useEffect(() => loadReferralCount(), [loadReferralCount]);
   return (
-    <DepthPage>
+    <div>
+      {' '}
       <div style={{ margin: '0 28px' }}>
         <PageHeader>초대하기⁺</PageHeader>
         {count ? (
@@ -136,6 +136,6 @@ export const Referral = () => {
           )}
         </>
       )}
-    </DepthPage>
+    </div>
   );
 };

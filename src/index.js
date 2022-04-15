@@ -17,13 +17,12 @@ import { Debug } from './pages/Debug';
 import { RequiredAuth } from './components/RequiredAuth';
 
 export const baseURL =
-  window.location.host === 'weblink.hikick.kr'
+  window.location.host !== 'weblink.hikick.kr'
     ? 'https://coreservice.hikick.kr/v1'
     : 'https://coreservice.staging.hikick.kr/v1';
 
 const GlobalStyle = styled.div`
   * {
-    user-select: none;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-touch-callout: none;
   }

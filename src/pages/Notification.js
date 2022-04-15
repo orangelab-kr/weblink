@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { DepthPage } from '../components/DepthPage';
 import { Client } from '../tools/client';
 import { PageHeader } from '../components/PageHeader';
 import { NotificationList } from '../components/Notification/NotificationList';
@@ -26,15 +25,13 @@ export const Notification = () => {
 
   useEffect(() => loadNotification(), [loadNotification, setLoading]);
   return (
-    <DepthPage>
-      <div style={{ marginLeft: 28, marginRight: 28 }}>
-        <PageHeader>알림</PageHeader>
-        <NotificationList
-          notifications={notifications}
-          hasMore={!loading & (notifications.length < total)}
-          loadMore={loadMore}
-        />
-      </div>
-    </DepthPage>
+    <div style={{ marginLeft: 28, marginRight: 28 }}>
+      <PageHeader>알림</PageHeader>
+      <NotificationList
+        notifications={notifications}
+        hasMore={!loading & (notifications.length < total)}
+        loadMore={loadMore}
+      />
+    </div>
   );
 };

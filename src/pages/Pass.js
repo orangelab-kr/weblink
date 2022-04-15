@@ -1,6 +1,5 @@
 import { Tabs } from 'antd-mobile';
 import { useCallback, useEffect, useState } from 'react';
-import { DepthPage } from '../components/DepthPage';
 import { PageHeader } from '../components/PageHeader';
 import { Client } from '../tools/client';
 import { PassMy } from '../components/Pass/PassMy';
@@ -27,7 +26,8 @@ export const Pass = () => {
   useEffect(() => getAvailablePasses(), [getAvailablePasses]);
 
   return (
-    <DepthPage>
+    <div>
+      {' '}
       <div style={{ margin: '0 28px' }}>
         <PageHeader>패스</PageHeader>
       </div>
@@ -47,6 +47,6 @@ export const Pass = () => {
           ))}
         </Tabs.Tab>
       </Tabs>
-    </DepthPage>
+    </div>
   );
 };
