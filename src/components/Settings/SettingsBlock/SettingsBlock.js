@@ -1,4 +1,4 @@
-export const SettingBlock = ({ icon, title, description, children }) => {
+export const SettingsBlock = ({ icon, title, description, children }) => {
   return (
     <>
       <div style={{ margin: 25, marginBottom: 40 }}>

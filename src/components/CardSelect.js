@@ -2,7 +2,7 @@ import { Picker } from 'antd-mobile';
 import { useEffect, useState } from 'react';
 import { Client } from '../tools/client';
 import { useToggle } from '../tools/useToggle';
-import { SettingItem } from './Setting/SettingItem/SettingItem';
+import { SettingsItem } from './Settings/SettingsItem';
 
 export const CardSelect = ({ value, onChange }) => {
   const [cards, setCards] = useState([]);
@@ -21,9 +21,9 @@ export const CardSelect = ({ value, onChange }) => {
 
   return (
     <>
-      <SettingItem onClick={setVisible(true)} title='카드 선택'>
+      <SettingsItem onClick={setVisible(true)} title='카드 선택'>
         {card && cards && cards.find((c) => c.cardId === card[0])?.cardName}
-      </SettingItem>
+      </SettingsItem>
       <Picker
         visible={visible}
         onClose={setVisible(false)}

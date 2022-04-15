@@ -2,10 +2,10 @@ import { Switch, Toast } from 'antd-mobile';
 import { BellOutline } from 'antd-mobile-icons';
 import dayjs from 'dayjs';
 import { useState } from 'react';
-import { SettingItem } from '../SettingItem/SettingItem';
-import { SettingBlock } from './SettingBlock';
+import { SettingsItem } from '../SettingsItem';
+import { SettingsBlock } from './SettingsBlock';
 
-export const SettingReceiveBlock = ({ user, updateUser }) => {
+export const SettingsReceiveBlock = ({ user, updateUser }) => {
   const { receiveSMS, receivePush, receiveEmail } = user;
   const [loading, setLoading] = useState({
     receiveSMS: false,
@@ -34,32 +34,32 @@ export const SettingReceiveBlock = ({ user, updateUser }) => {
   };
 
   return (
-    <SettingBlock
+    <SettingsBlock
       icon={<BellOutline />}
       title='수신동의'
       description='알림을 켜두면 더 다양한 혜택을 받아보실 수 있습니다.'
     >
-      <SettingItem gap={8} title='SMS 문자 수신'>
+      <SettingsItem gap={8} title='SMS 문자 수신'>
         <Switch
           checked={checked.receiveSMS || false}
           loading={loading.receiveSMS}
           onChange={onChange('receiveSMS')}
         />
-      </SettingItem>
-      <SettingItem gap={8} title='앱 알림 수신'>
+      </SettingsItem>
+      <SettingsItem gap={8} title='앱 알림 수신'>
         <Switch
           checked={checked.receivePush || false}
           loading={loading.receivePush}
           onChange={onChange('receivePush')}
         />
-      </SettingItem>
-      <SettingItem gap={8} title='이메일 수신'>
+      </SettingsItem>
+      <SettingsItem gap={8} title='이메일 수신'>
         <Switch
           checked={checked.receiveEmail || false}
           loading={loading.receiveEmail}
           onChange={onChange('receiveEmail')}
         />
-      </SettingItem>
-    </SettingBlock>
+      </SettingsItem>
+    </SettingsBlock>
   );
 };

@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Client } from '../tools/client';
 import { FullScreenLoading } from '../components/FullScreenLoading';
-import { SettingProfileBlock } from '../components/Setting/SettingBlock/SettingProfileBlock';
-import { SettingInfoBlock } from '../components/Setting/SettingBlock/SettingInfoBlock';
-import { SettingMethodBlock } from '../components/Setting/SettingBlock/SettingMethodBlock';
-import { SettingReceiveBlock } from '../components/Setting/SettingBlock/SettingReceiveBlock';
-import { SettingEtcBlock } from '../components/Setting/SettingBlock/SettingEtcBlock';
+import { SettingsProfileBlock } from '../components/Settings/SettingsBlock/SettingsProfileBlock';
+import { SettingsInfoBlock } from '../components/Settings/SettingsBlock/SettingsInfoBlock';
+import { SettingsMethodBlock } from '../components/Settings/SettingsBlock/SettingsMethodBlock';
+import { SettingsReceiveBlock } from '../components/Settings/SettingsBlock/SettingsReceiveBlock';
+import { SettingsEtcBlock } from '../components/Settings/SettingsBlock/SettingsEtcBlock';
 
-export const Setting = () => {
+export const Settings = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
   const [methods, setMethods] = useState([]);
@@ -32,11 +32,11 @@ export const Setting = () => {
   useEffect(() => loadUser(), [loadUser, setLoading]);
   return (
     <FullScreenLoading loading={loading}>
-      <SettingProfileBlock user={user} updateUser={updateUser} />
-      <SettingInfoBlock user={user} updateUser={updateUser} />
-      <SettingMethodBlock user={user} methods={methods} />
-      <SettingReceiveBlock user={user} updateUser={updateUser} />
-      <SettingEtcBlock user={user} />
+      <SettingsProfileBlock user={user} updateUser={updateUser} />
+      <SettingsInfoBlock user={user} updateUser={updateUser} />
+      <SettingsMethodBlock user={user} methods={methods} />
+      <SettingsReceiveBlock user={user} updateUser={updateUser} />
+      <SettingsEtcBlock user={user} />
     </FullScreenLoading>
   );
 };

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import { Setting } from './pages/Setting';
+import { Settings } from './pages/Settings';
 import { AuthAuthorize } from './pages/auth/Authorize';
 import { Level } from './pages/Level';
 import { Notification } from './pages/Notification';
@@ -17,7 +17,7 @@ import { Debug } from './pages/Debug';
 import { RequiredAuth } from './components/RequiredAuth';
 
 export const baseURL =
-  window.location.host !== 'weblink.hikick.kr'
+  window.location.host === 'weblink.hikick.kr'
     ? 'https://coreservice.hikick.kr/v1'
     : 'https://coreservice.staging.hikick.kr/v1';
 
@@ -45,8 +45,8 @@ ReactDOM.render(
               <Route path='/level'>
                 <Level />
               </Route>
-              <Route path='/setting'>
-                <Setting />
+              <Route path='/settings'>
+                <Settings />
               </Route>
               <Route path='/notification'>
                 <Notification />

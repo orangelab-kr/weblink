@@ -7,5 +7,5 @@ export * from './Notification';
 export * from './PageHeader';
 export * from './Pass';
 export * from './RequiredAuth';
-export * from './Setting';
+export * from './Settings';
 export * from './Sidebar';

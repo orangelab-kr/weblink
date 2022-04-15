@@ -1,6 +1,13 @@
 import { Divider } from 'antd-mobile';
 
-export const SettingItem = ({ children, icon, gap, title, extra, onClick }) => {
+export const SettingsItem = ({
+  children,
+  icon,
+  gap,
+  title,
+  extra,
+  onClick,
+}) => {
   return (
     <>
       <div

@@ -2,7 +2,7 @@ import { Image } from 'antd-mobile';
 import { useRef } from 'react';
 import { Client } from '../../../tools/client';
 
-export const SettingProfileBlock = ({ user, updateUser }) => {
+export const SettingsProfileBlock = ({ user, updateUser }) => {
   const imageRef = useRef(null);
   const onSelectImage = () => imageRef.current.click();
   const onChangeImage = async (event) => {

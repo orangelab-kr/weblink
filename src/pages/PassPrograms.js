@@ -11,8 +11,8 @@ import remarkGfm from 'remark-gfm';
 import styled from 'styled-components';
 import { CardSelect } from '../components/CardSelect';
 import { PageHeader } from '../components/PageHeader';
-import { SettingBlock } from '../components/Setting/SettingBlock/SettingBlock';
-import { SettingItem } from '../components/Setting/SettingItem/SettingItem';
+import { SettingsBlock } from '../components/Settings/SettingsBlock/SettingsBlock';
+import { SettingsItem } from '../components/Settings/SettingsItem';
 import { Client } from '../tools/client';
 
 const NoborderForm = styled(Form)`
@@ -65,28 +65,28 @@ export const PassPrograms = withRouter(({ history }) => {
       </div>
       <NoborderForm onFinish={onPurchase} style={{ border: 'none' }}>
         {passProgram && passProgram.description && (
-          <SettingBlock icon={<FileOutline />} title='패스 정보'>
+          <SettingsBlock icon={<FileOutline />} title='패스 정보'>
             <ReactMarkdown
               children={passProgram.description}
               remarkPlugins={[remarkGfm]}
             />
-          </SettingBlock>
+          </SettingsBlock>
         )}
 
-        <SettingBlock icon={<BankcardOutline />} title='결제 수단'>
+        <SettingsBlock icon={<BankcardOutline />} title='결제 수단'>
           <Form.Item name='cardId' noStyle>
             <CardSelect />
           </Form.Item>
-          <SettingItem title='자동 연장'>
+          <SettingsItem title='자동 연장'>
             <Form.Item name='autoRenew' noStyle>
               <Checkbox />
             </Form.Item>
-          </SettingItem>
+          </SettingsItem>
           <p style={{ fontSize: 13 }}>
             자동 연장시 별도로 선택한 카드가 아닌 카드 우선순위대로 결제가
             시도됩니다.
           </p>
-        </SettingBlock>
+        </SettingsBlock>
         <div
           style={{
             position: 'fixed',

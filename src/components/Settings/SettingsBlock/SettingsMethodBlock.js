@@ -1,7 +1,7 @@
 import { CloseOutline, LinkOutline, RightOutline } from 'antd-mobile-icons';
 import styled from 'styled-components';
-import { SettingItem } from '../SettingItem/SettingItem';
-import { SettingBlock } from './SettingBlock';
+import { SettingsItem } from '../SettingsItem';
+import { SettingsBlock } from './SettingsBlock';
 
 const MethodConnectButton = styled.a`
   font-weight: 600;
@@ -9,7 +9,7 @@ const MethodConnectButton = styled.a`
   color: black;
 `;
 
-export const SettingMethodBlock = ({ user, methods }) => {
+export const SettingsMethodBlock = ({ user, methods }) => {
   const kakao = methods.find((method) => method.provider === 'kakao');
   const apple = methods.find((method) => method.provider === 'apple');
 
@@ -26,12 +26,12 @@ export const SettingMethodBlock = ({ user, methods }) => {
   );
 
   return (
-    <SettingBlock
+    <SettingsBlock
       icon={<LinkOutline />}
       title='인증수단'
       description='인증수단을 연결하여 더 간편하게 로그인해보세요.'
     >
-      <SettingItem
+      <SettingsItem
         title='카카오'
         icon={
           <img
@@ -48,8 +48,8 @@ export const SettingMethodBlock = ({ user, methods }) => {
         ) : (
           <Disconnect provider='kakao' />
         )}
-      </SettingItem>
-      <SettingItem
+      </SettingsItem>
+      <SettingsItem
         title='애플'
         icon={
           <img
@@ -66,7 +66,7 @@ export const SettingMethodBlock = ({ user, methods }) => {
         ) : (
           <Disconnect provider='kakao' />
         )}
-      </SettingItem>
-    </SettingBlock>
+      </SettingsItem>
+    </SettingsBlock>
   );
 };

@@ -73,7 +73,7 @@ export const Sidebar = () => {
           <SidebarPrimaryButton
             name='설정'
             icon={<SetOutline />}
-            href='hikick://weblink/setting'
+            href='hikick://weblink/Settingss'
           />
         </SidebarPrimaryMenu>
         <SidebarSecondaryMenu>
