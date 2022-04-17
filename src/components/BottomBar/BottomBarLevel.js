@@ -18,7 +18,7 @@ const Bold = styled.b`
   font-weight: 800;
 `;
 
-export const SidebarLevel = () => {
+export const BottomBarLevel = () => {
   const [point, setPoint] = useState(0);
   const [level, setLevel] = useState(null);
   const [levels, setLevels] = useState([]);

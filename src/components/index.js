@@ -8,4 +8,4 @@ export * from './PageHeader';
 export * from './Pass';
 export * from './RequiredAuth';
 export * from './Settings';
-export * from './Sidebar';
+export * from './BottomBar';

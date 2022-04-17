@@ -7,11 +7,11 @@ const NameContainer = styled.p`
   font-weight: 600;
 `;
 
-export const SidebarProfile = ({ user }) => {
+export const BottomBarProfile = ({ user }) => {
   return (
     <>
       <Image
-        fit="cover"
+        fit='cover'
         src={user.profileUrl || '/assets/user.png'}
         style={{ borderRadius: 100 }}
         height={50}

@@ -1,19 +1,18 @@
 import styled from 'styled-components';
 
 const Button = styled.p`
-  padding: 0.7em 0px;
-  font-size: 01em;
+  margin: 12px 0;
   &:active {
     opacity: 0.5;
   }
 `;
 
-export const SidebarPrimaryButton = ({ name, icon, href }) => {
+export const BottomBarSecondaryButton = ({ name, icon, href }) => {
   const onClick = () => href && (window.location.href = href);
 
   return (
     <Button onClick={onClick}>
-      {icon} {name}
+      {name} {icon}
     </Button>
   );
 };

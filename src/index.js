@@ -10,7 +10,7 @@ import { Notification } from './pages/Notification';
 import { Pass } from './pages/Pass';
 import { Referral } from './pages/Referral';
 import { Secession } from './pages/Secession';
-import { Sidebar } from './pages/Sidebar';
+import { BottomBar } from './pages/BottomBar';
 import { Pay } from './pages/Pay';
 import { PassPrograms } from './pages/PassPrograms';
 import { Debug } from './pages/Debug';
@@ -61,8 +61,8 @@ ReactDOM.render(
               <Route path='/passPrograms/:passProgramId'>
                 <PassPrograms />
               </Route>
-              <Route path='/sidebar'>
-                <Sidebar />
+              <Route path='/bottombar'>
+                <BottomBar />
               </Route>
               <Route path='/secession'>
                 <Secession />

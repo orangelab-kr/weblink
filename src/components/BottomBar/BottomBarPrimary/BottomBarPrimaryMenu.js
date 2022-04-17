@@ -6,6 +6,6 @@ const Menu = styled.p`
   font-size: 18px;
 `;
 
-export const SidebarPrimaryMenu = ({ children }) => {
+export const BottomBarPrimaryMenu = ({ children }) => {
   return <Menu>{children}</Menu>;
 };

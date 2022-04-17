@@ -10,6 +10,6 @@ const Menu = styled.p`
   border-top: solid #eee 1px;
 `;
 
-export const SidebarSecondaryMenu = ({ children }) => {
+export const BottomBarSecondaryMenu = ({ children }) => {
   return <Menu>{children}</Menu>;
 };

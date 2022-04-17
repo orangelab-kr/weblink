@@ -11,78 +11,78 @@ import {
   UserAddOutline,
 } from 'antd-mobile-icons';
 import styled from 'styled-components';
-import { SidebarLevel } from '../components/Sidebar/SidebarLevel';
-import { SidebarPrimaryMenu } from '../components/Sidebar/SidebarPrimary/SidebarPrimaryMenu';
-import { SidebarPrimaryButton } from '../components/Sidebar/SidebarPrimary/SidebarPrimaryButton';
-import { SidebarSecondaryMenu } from '../components/Sidebar/SidebarSecondary/SidebarSecondaryMenu';
-import { SidebarSecondaryButton } from '../components/Sidebar/SidebarSecondary/SidebarSecondaryButton';
+import { BottomBarLevel } from '../components/BottomBar/BottomBarLevel';
+import { BottomBarPrimaryMenu } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryMenu';
+import { BottomBarPrimaryButton } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryButton';
+import { BottomBarSecondaryMenu } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryMenu';
+import { BottomBarSecondaryButton } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryButton';
 
 const MainContainer = styled.div`
   margin: 15px 32px 0;
 `;
 
-export const Sidebar = () => {
+export const BottomBar = () => {
   return (
     <MainContainer>
-      <SidebarLevel />
-      <SidebarPrimaryMenu>
-        <SidebarPrimaryButton
+      <BottomBarLevel />
+      <BottomBarPrimaryMenu>
+        <BottomBarPrimaryButton
           name='라이드 기록'
           icon={<UnorderedListOutline />}
           href='hikick://rides'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='카드'
           icon={<BankcardOutline />}
           href='hikick://payments'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='쿠폰'
           icon={<CouponOutline />}
           href='hikick://coupons'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='알림'
           icon={<BellOutline />}
           href='hikick://weblink?page=notification'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='패스'
           icon={<FileOutline />}
           href='hikick://weblink?page=pass'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='초대하기⁺'
           icon={<UserAddOutline />}
           href='hikick://weblink?page=referral'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='공지사항'
           icon={<SoundOutline />}
           href='hikick://weblink?page=notices'
         />
-        <SidebarPrimaryButton
+        <BottomBarPrimaryButton
           name='설정'
           icon={<SetOutline />}
           href='hikick://weblink?page=settings'
         />
-      </SidebarPrimaryMenu>
-      <SidebarSecondaryMenu>
-        {/* <SidebarSecondaryButton
+      </BottomBarPrimaryMenu>
+      <BottomBarSecondaryMenu>
+        {/* <BottomBarSecondaryButton
             name="센터코인 인증"
             icon={<HeartOutline />}
           /> */}
-        <SidebarSecondaryButton
+        <BottomBarSecondaryButton
           name='고객센터'
           icon={<ChatCheckOutline />}
           href='hikick://weblink/channeltalk'
         />
-        <SidebarSecondaryButton
+        <BottomBarSecondaryButton
           name='로그아웃'
           icon={<RightOutline />}
           href='hikick://auth/logout'
         />
-      </SidebarSecondaryMenu>
+      </BottomBarSecondaryMenu>
     </MainContainer>
   );
 };
