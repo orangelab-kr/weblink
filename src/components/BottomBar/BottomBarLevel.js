@@ -49,7 +49,7 @@ export const BottomBarLevel = () => {
 
   useEffect(() => getLevel(), [getLevel]);
   useEffect(() => getAllLevels(), [getAllLevels]);
-  if (level === null) return <></>;
+  if (level === null) return <div style={{ marginTop: 75 }}></div>;
   return (
     <div onClick={onClick}>
       <div style={{ position: 'relative', marginTop: 5 }}>
