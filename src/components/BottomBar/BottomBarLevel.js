@@ -49,18 +49,18 @@ export const BottomBarLevel = () => {
 
   useEffect(() => getLevel(), [getLevel]);
   useEffect(() => getAllLevels(), [getAllLevels]);
-  if (level === null) return <div style={{ marginTop: 75 }}></div>;
+  // if (level === null) return <div style={{ marginTop: 75 }}></div>;
   return (
     <div onClick={onClick}>
       <div style={{ position: 'relative', marginTop: 5 }}>
-        <ProgressBarText color={level.color}>
-          <Bold>{progressLevel}%</Bold> / {level.name}
+        <ProgressBarText color={level?.color || '#32CD32'}>
+          <Bold>{progressLevel || 0}%</Bold> / {level?.name || '로드 중...'}
         </ProgressBarText>
         <ProgressBar
           percent={progressLevel}
           style={{
             '--track-width': '20px',
-            '--fill-color': level.color,
+            '--fill-color': level?.color,
           }}
         />
       </div>

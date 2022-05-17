@@ -19,7 +19,7 @@ export const LevelDescription = ({ level, point, nextLevel }) => {
     const levelRequiredPoint = Math.max(0, level.requiredPoint - point);
     return nextLevelRequiredPoint || levelRequiredPoint;
   }, [level, nextLevel, point]);
-
+  if (!level) return <LevelMessage>정보를 불러오고 있습니다.</LevelMessage>;
   if (nextLevel && requiredPoint) {
     return (
       <LevelMessage>
