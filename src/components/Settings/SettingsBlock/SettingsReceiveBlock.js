@@ -28,7 +28,14 @@ export const SettingsReceiveBlock = ({ user, updateUser }) => {
       const date = dayjs().format('YYYY년 MM월 DD일');
       Toast.show({
         icon: 'success',
-        content: `${date} 이후 광고 수신에 동의하셨습니다.`,
+        content: (
+          <div style={{ margin: '0 -1.8em', textAlign: 'center' }}>
+            <div style={{ fontSize: '1em', fontWeight: '800' }}>{date}</div>
+            <div style={{ fontSize: '0.88em', wordBreak: 'keep-all' }}>
+              이후 광고 수신에 동의하셨습니다.
+            </div>
+          </div>
+        ),
       });
     }
   };
