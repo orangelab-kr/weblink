@@ -91,11 +91,7 @@ export const EditablePhone = ({ value, onChange }) => {
       <div onClick={() => setVisible(true)}>
         {onPhoneFormatter(value)} {loading ? <Loading /> : <EditSOutline />}
       </div>
-      <Popup
-        visible={visible}
-        onMaskClick={() => setVisible(false)}
-        bodyStyle={{ height: '25vh' }}
-      >
+      <Popup visible={visible} onMaskClick={() => setVisible(false)}>
         <div style={{ margin: '2em' }}>
           <p style={{ fontSize: '1.8em', fontWeight: 800 }}>전화번호 변경</p>
           <Form form={form} style={{ marginTop: '1em' }}>

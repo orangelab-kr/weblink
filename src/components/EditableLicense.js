@@ -46,11 +46,7 @@ export const EditableLicense = ({ user, value, onReload }) => {
         </div>
       )}
 
-      <Popup
-        visible={visible}
-        onMaskClick={() => setVisible(false)}
-        bodyStyle={{ height: '28vh' }}
-      >
+      <Popup visible={visible} onMaskClick={() => setVisible(false)}>
         <div style={{ margin: '2em' }}>
           <p style={{ fontSize: '1.8em', fontWeight: 800 }}>운전면허 등록</p>
           <Form
