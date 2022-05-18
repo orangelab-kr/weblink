@@ -1,13 +1,9 @@
-import {
-  CheckShieldFill,
-  EditSOutline,
-  RightOutline,
-  SmileOutline,
-} from 'antd-mobile-icons';
+import { CheckShieldFill, RightOutline, SmileOutline } from 'antd-mobile-icons';
 import { SettingsBlock } from './SettingsBlock';
 import { SettingsItem } from '../SettingsItem';
 import { EditableText } from '../../EditableText';
 import { EditableDate } from '../../EditableDate';
+import { EditablePhone } from '../../EditablePhone';
 
 export const SettingsInfoBlock = ({ user, updateUser }) => {
   const onChange = (field) => (value) => updateUser({ [field]: value });
@@ -21,8 +17,8 @@ export const SettingsInfoBlock = ({ user, updateUser }) => {
       <SettingsItem gap={12} title='성명'>
         <EditableText value={user.realname} onChange={onChange('realname')} />
       </SettingsItem>
-      <SettingsItem gap={12} title='전화번호' extra={<EditSOutline />}>
-        {user.phoneNo}
+      <SettingsItem gap={12} title='전화번호'>
+        <EditablePhone value={user.phoneNo} onChange={onChange('phone')} />
       </SettingsItem>
       <SettingsItem gap={12} title='이메일'>
         <EditableText value={user.email} onChange={onChange('email')} />
