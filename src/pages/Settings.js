@@ -33,7 +33,11 @@ export const Settings = () => {
   return (
     <FullScreenLoading loading={loading}>
       <SettingsProfileBlock user={user} updateUser={updateUser} />
-      <SettingsInfoBlock user={user} updateUser={updateUser} />
+      <SettingsInfoBlock
+        user={user}
+        updateUser={updateUser}
+        loadUser={loadUser}
+      />
       <SettingsMethodBlock user={user} methods={methods} />
       <SettingsReceiveBlock user={user} updateUser={updateUser} />
       <SettingsEtcBlock user={user} />

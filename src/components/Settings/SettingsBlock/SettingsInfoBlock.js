@@ -1,11 +1,12 @@
-import { CheckShieldFill, RightOutline, SmileOutline } from 'antd-mobile-icons';
+import { SmileOutline } from 'antd-mobile-icons';
 import { SettingsBlock } from './SettingsBlock';
 import { SettingsItem } from '../SettingsItem';
 import { EditableText } from '../../EditableText';
 import { EditableDate } from '../../EditableDate';
 import { EditablePhone } from '../../EditablePhone';
+import { EditableLicense } from '../../EditableLicense';
 
-export const SettingsInfoBlock = ({ user, updateUser }) => {
+export const SettingsInfoBlock = ({ user, updateUser, loadUser }) => {
   const onChange = (field) => (value) => updateUser({ [field]: value });
 
   return (
@@ -30,18 +31,12 @@ export const SettingsInfoBlock = ({ user, updateUser }) => {
           askLicenseDelete={!!user.licenseId}
         />
       </SettingsItem>
-      <SettingsItem
-        gap={12}
-        title='운전면허'
-        extra={
-          user.licenseId ? (
-            <CheckShieldFill color='#3cb371' />
-          ) : (
-            <RightOutline />
-          )
-        }
-      >
-        {user.licenseId ? '인증됨' : '인증 필요'}
+      <SettingsItem gap={12} title='운전면허'>
+        <EditableLicense
+          user={user}
+          value={user.licenseId}
+          onReload={loadUser}
+        />
       </SettingsItem>
     </SettingsBlock>
   );
