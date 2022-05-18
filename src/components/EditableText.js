@@ -25,13 +25,12 @@ export const EditableText = ({ value, onChange }) => {
 
   const onUpdate = async () => {
     setEditable(false);
-    if (onChange && value !== updatedValue) {
-      try {
-        setLoading(true);
-        await onChange(updatedValue);
-      } finally {
-        setLoading(false);
-      }
+    if (!onChange || value === updatedValue) return;
+    try {
+      setLoading(true);
+      await onChange(updatedValue);
+    } finally {
+      setLoading(false);
     }
   };
 
