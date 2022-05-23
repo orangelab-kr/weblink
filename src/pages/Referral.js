@@ -40,8 +40,14 @@ export const Referral = () => {
     Toast.show({ content: '복사되었습니다.', position: 'top' });
   };
 
-  useEffect(() => loadUser(), [loadUser, setLoading]);
-  useEffect(() => loadReferralCount(), [loadReferralCount]);
+  useEffect(() => {
+    loadUser();
+  }, [loadUser, setLoading]);
+
+  useEffect(() => {
+    loadReferralCount();
+  }, [loadReferralCount]);
+
   return (
     <div>
       {' '}

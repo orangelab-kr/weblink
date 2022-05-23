@@ -9,6 +9,9 @@ export const RequiredAuth = ({ children }) => {
     setLoading(false);
   }, []);
 
-  useEffect(() => loadUser(), [loadUser, setLoading]);
+  useEffect(() => {
+    loadUser();
+  }, [loadUser, setLoading]);
+
   return <FullScreenLoading loading={loading}>{children}</FullScreenLoading>;
 };

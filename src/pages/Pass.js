@@ -22,8 +22,13 @@ export const Pass = () => {
     setAvailablePasses(data.passPrograms);
   }, [tab]);
 
-  useEffect(() => getMyPasses(), [getMyPasses]);
-  useEffect(() => getAvailablePasses(), [getAvailablePasses]);
+  useEffect(() => {
+    getMyPasses();
+  }, [getMyPasses]);
+
+  useEffect(() => {
+    getAvailablePasses();
+  }, [getAvailablePasses]);
 
   return (
     <div>

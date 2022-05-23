@@ -15,7 +15,10 @@ export const AuthAuthorize = withRouter(() => {
     setLoading(false);
   }, [sessionId]);
 
-  useEffect(() => loadUser(), [loadUser, setLoading]);
+  useEffect(() => {
+    loadUser();
+  }, [loadUser, setLoading]);
+
   return (
     <FullScreenLoading loading={loading}>
       <Redirect to={redirect || '/'} />

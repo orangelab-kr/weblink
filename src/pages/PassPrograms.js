@@ -57,7 +57,10 @@ export const PassPrograms = withRouter(({ history }) => {
     history.push('/pass');
   };
 
-  useEffect(() => loadPassProgram(), [loadPassProgram]);
+  useEffect(() => {
+    loadPassProgram();
+  }, [loadPassProgram]);
+
   return (
     <div>
       <div style={{ margin: '0 28px' }}>

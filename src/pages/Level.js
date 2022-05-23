@@ -47,8 +47,13 @@ export const Level = () => {
     return Math.min(percentage, 100);
   }, [level, nextLevel, point]);
 
-  useEffect(() => getLevel(), [getLevel]);
-  useEffect(() => getAllLevels(), [getAllLevels]);
+  useEffect(() => {
+    getLevel();
+  }, [getLevel]);
+
+  useEffect(() => {
+    getAllLevels();
+  }, [getAllLevels]);
 
   return (
     <div style={{ marginLeft: 28, marginRight: 28 }}>

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
@@ -14,6 +13,10 @@ import { BottomBar } from './pages/BottomBar';
 import { Pay } from './pages/Pay';
 import { PassPrograms } from './pages/PassPrograms';
 import { RequiredAuth } from './components/RequiredAuth';
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById('root');
+const root = createRoot(container);
 
 export const baseURL =
   window.location.host === 'weblink.hikick.kr'
@@ -28,7 +31,7 @@ const GlobalStyle = styled.div`
   }
 `;
 
-ReactDOM.render(
+root.render(
   <React.StrictMode>
     <Reset />
     <GlobalStyle>
@@ -71,6 +74,5 @@ ReactDOM.render(
         </Switch>
       </BrowserRouter>
     </GlobalStyle>
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>
 );

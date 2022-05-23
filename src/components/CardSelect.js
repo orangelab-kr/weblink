@@ -12,8 +12,14 @@ export const CardSelect = ({ value, onChange }) => {
   const getCards = () =>
     Client.get('/payments/cards').then(({ data }) => setCards(data.cards));
 
-  useEffect(() => getCards(), []);
-  useEffect(() => onChange && onChange(card[0]), [card, onChange]);
+  useEffect(() => {
+    getCards();
+  }, []);
+
+  useEffect(() => {
+    onChange && onChange(card[0]);
+  }, [card, onChange]);
+  
   useEffect(() => {
     if (value || cards.length <= 0) return;
     setCard([cards[0].cardId]);

@@ -23,7 +23,10 @@ export const Notifications = () => {
     setSkip((skip) => skip + take);
   };
 
-  useEffect(() => loadNotification(), [loadNotification, setLoading]);
+  useEffect(() => {
+    loadNotification();
+  }, [loadNotification, setLoading]);
+
   return (
     <div style={{ marginLeft: 28, marginRight: 28 }}>
       <PageHeader>알림</PageHeader>

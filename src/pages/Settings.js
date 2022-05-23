@@ -29,7 +29,10 @@ export const Settings = () => {
     return data.user;
   };
 
-  useEffect(() => loadUser(), [loadUser, setLoading]);
+  useEffect(() => {
+    loadUser();
+  }, [loadUser, setLoading]);
+
   return (
     <FullScreenLoading loading={loading}>
       <SettingsProfileBlock user={user} updateUser={updateUser} />

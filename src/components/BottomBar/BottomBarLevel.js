@@ -47,9 +47,14 @@ export const BottomBarLevel = () => {
     return Math.min(percentage, 100);
   }, [level, nextLevel, point]);
 
-  useEffect(() => getLevel(), [getLevel]);
-  useEffect(() => getAllLevels(), [getAllLevels]);
-  // if (level === null) return <div style={{ marginTop: 75 }}></div>;
+  useEffect(() => {
+    getLevel();
+  }, [getLevel]);
+
+  useEffect(() => {
+    getAllLevels();
+  }, [getAllLevels]);
+
   return (
     <div onClick={onClick}>
       <div style={{ position: 'relative', marginTop: 5 }}>
