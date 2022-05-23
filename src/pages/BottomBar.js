@@ -44,22 +44,22 @@ export const BottomBar = () => {
         <BottomBarPrimaryButton
           name='알림'
           icon={<BellOutline />}
-          href='hikick://weblink?page=notification'
+          href='hikick://weblink/notifications'
         />
         <BottomBarPrimaryButton
           name='패스'
           icon={<FileOutline />}
-          href='hikick://weblink?page=pass'
+          href='hikick://weblink/pass'
         />
         <BottomBarPrimaryButton
           name='초대하기⁺'
           icon={<UserAddOutline />}
-          href='hikick://weblink?page=referral'
+          href='hikick://weblink/referral'
         />
         <BottomBarPrimaryButton
           name='공지사항'
           icon={<SoundOutline />}
-          href='hikick://weblink?page=notices'
+          href='hikick://notices'
         />
         <BottomBarPrimaryButton
           name='설정'
@@ -75,7 +75,7 @@ export const BottomBar = () => {
         <BottomBarSecondaryButton
           name='고객센터'
           icon={<ChatCheckOutline />}
-          href='hikick://weblink/channeltalk'
+          href='hikick://channeltalk'
         />
         <BottomBarSecondaryButton
           name='로그아웃'
