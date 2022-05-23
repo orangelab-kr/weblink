@@ -13,7 +13,6 @@ import { Secession } from './pages/Secession';
 import { BottomBar } from './pages/BottomBar';
 import { Pay } from './pages/Pay';
 import { PassPrograms } from './pages/PassPrograms';
-import { Debug } from './pages/Debug';
 import { RequiredAuth } from './components/RequiredAuth';
 
 export const baseURL =
@@ -37,9 +36,6 @@ ReactDOM.render(
         <Switch>
           <Route path='/auth/authorize'>
             <AuthAuthorize />
-          </Route>
-          <Route path='/debug'>
-            <Debug />
           </Route>
           <Route path='/'>
             <RequiredAuth>

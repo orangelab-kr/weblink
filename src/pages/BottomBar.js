@@ -64,7 +64,7 @@ export const BottomBar = () => {
         <BottomBarPrimaryButton
           name='설정'
           icon={<SetOutline />}
-          href='hikick://weblink?page=settings'
+          href='hikick://weblink/settings'
         />
       </BottomBarPrimaryMenu>
       <BottomBarSecondaryMenu>
