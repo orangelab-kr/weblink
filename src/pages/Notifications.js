@@ -3,7 +3,7 @@ import { Client } from '../tools/client';
 import { PageHeader } from '../components/PageHeader';
 import { NotificationList } from '../components/Notification/NotificationList';
 
-export const Notification = () => {
+export const Notifications = () => {
   const take = 10;
   const [skip, setSkip] = useState(0);
   const [total, setTotal] = useState();

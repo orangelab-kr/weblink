@@ -6,7 +6,7 @@ import { Reset } from 'styled-reset';
 import { Settings } from './pages/Settings';
 import { AuthAuthorize } from './pages/auth/Authorize';
 import { Level } from './pages/Level';
-import { Notification } from './pages/Notification';
+import { Notifications } from './pages/Notifications';
 import { Pass } from './pages/Pass';
 import { Referral } from './pages/Referral';
 import { Secession } from './pages/Secession';
@@ -49,8 +49,8 @@ ReactDOM.render(
               <Route path='/settings'>
                 <Settings />
               </Route>
-              <Route path='/notification'>
-                <Notification />
+              <Route path='/notifications'>
+                <Notifications />
               </Route>
               <Route path={['/pass', '/passPrograms']} exact>
                 <Pass />
