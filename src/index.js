@@ -15,8 +15,11 @@ import { PassPrograms } from './pages/PassPrograms';
 import { RequiredAuth } from './components/RequiredAuth';
 import { createRoot } from 'react-dom/client';
 
-const container = document.getElementById('root');
-const root = createRoot(container);
+const rootNode = document.getElementById('root');
+
+while (rootNode.lastChild) {
+  rootNode.removeChild(rootNode.lastChild);
+}
 
 export const baseURL =
   window.location.host === 'weblink.hikick.kr'
@@ -31,7 +34,7 @@ const GlobalStyle = styled.div`
   }
 `;
 
-root.render(
+createRoot(rootNode).render(
   <React.StrictMode>
     <Reset />
     <GlobalStyle>
