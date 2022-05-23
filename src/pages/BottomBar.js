@@ -3,7 +3,6 @@ import {
   BellOutline,
   ChatCheckOutline,
   CouponOutline,
-  FileOutline,
   RightOutline,
   SetOutline,
   SoundOutline,
@@ -16,6 +15,7 @@ import { BottomBarPrimaryMenu } from '../components/BottomBar/BottomBarPrimary/B
 import { BottomBarPrimaryButton } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryButton';
 import { BottomBarSecondaryMenu } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryMenu';
 import { BottomBarSecondaryButton } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryButton';
+import { MykickButton } from '../components/MykickButton';
 
 const MainContainer = styled.div`
   margin: 15px 32px 0;
@@ -46,11 +46,11 @@ export const BottomBar = () => {
           icon={<BellOutline />}
           href='hikick://weblink/notifications'
         />
-        <BottomBarPrimaryButton
+        {/* <BottomBarPrimaryButton
           name='패스'
           icon={<FileOutline />}
           href='hikick://weblink/pass'
-        />
+        /> */}
         <BottomBarPrimaryButton
           name='초대하기⁺'
           icon={<UserAddOutline />}
@@ -66,6 +66,7 @@ export const BottomBar = () => {
           icon={<SetOutline />}
           href='hikick://weblink/settings'
         />
+        <MykickButton />
       </BottomBarPrimaryMenu>
       <BottomBarSecondaryMenu>
         {/* <BottomBarSecondaryButton

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.p`
+const Button = styled.div`
   padding: 0.7em 0px;
   font-size: 01em;
   &:active {
@@ -8,11 +8,11 @@ const Button = styled.p`
   }
 `;
 
-export const BottomBarPrimaryButton = ({ name, icon, href }) => {
+export const BottomBarPrimaryButton = ({ name, icon, href, ...props }) => {
   const onClick = () => href && (window.location.href = href);
 
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} {...props}>
       {icon} {name}
     </Button>
   );

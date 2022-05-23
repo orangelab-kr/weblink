@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Menu = styled.p`
+const Menu = styled.div`
   color: #999;
   width: 80%;
   font-size: 15px;
