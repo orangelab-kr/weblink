@@ -1,21 +1,21 @@
 {
   "name": "weblink",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "private": true,
   "dependencies": {
-    "antd-mobile": "^5.12.6",
-    "antd-mobile-icons": "^0.2.2",
+    "antd-mobile": "^5.18.0",
+    "antd-mobile-icons": "^0.3.0",
     "axios": "^0.27.2",
     "copy-to-clipboard": "^3.3.1",
-    "dayjs": "^1.11.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
+    "dayjs": "^1.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-markdown": "^8.0.3",
     "react-router-dom": "^5.3.0",
     "react-scripts": "5.0.1",
     "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.5",
-    "styled-reset": "^4.4.1"
+    "styled-reset": "^4.4.2"
   },
   "scripts": {
     "start": "CHOKIDAR_USEPOLLING=true react-scripts start",

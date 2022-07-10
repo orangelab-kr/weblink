@@ -7,14 +7,14 @@ import {
   SetOutline,
   SoundOutline,
   UnorderedListOutline,
-  UserAddOutline,
+  UserAddOutline
 } from 'antd-mobile-icons';
 import styled from 'styled-components';
 import { BottomBarLevel } from '../components/BottomBar/BottomBarLevel';
-import { BottomBarPrimaryMenu } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryMenu';
 import { BottomBarPrimaryButton } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryButton';
-import { BottomBarSecondaryMenu } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryMenu';
+import { BottomBarPrimaryMenu } from '../components/BottomBar/BottomBarPrimary/BottomBarPrimaryMenu';
 import { BottomBarSecondaryButton } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryButton';
+import { BottomBarSecondaryMenu } from '../components/BottomBar/BottomBarSecondary/BottomBarSecondaryMenu';
 import { MykickButton } from '../components/MykickButton';
 
 const MainContainer = styled.div`
@@ -76,7 +76,7 @@ export const BottomBar = () => {
         <BottomBarSecondaryButton
           name='고객센터'
           icon={<ChatCheckOutline />}
-          href='hikick://channeltalk'
+          href='hikick://kakaotalk'
         />
         <BottomBarSecondaryButton
           name='로그아웃'
