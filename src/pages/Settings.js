@@ -1,16 +1,15 @@
 import { useCallback, useEffect, useState } from 'react';
-import { Client } from '../tools/client';
 import { FullScreenLoading } from '../components/FullScreenLoading';
-import { SettingsProfileBlock } from '../components/Settings/SettingsBlock/SettingsProfileBlock';
-import { SettingsInfoBlock } from '../components/Settings/SettingsBlock/SettingsInfoBlock';
-import { SettingsMethodBlock } from '../components/Settings/SettingsBlock/SettingsMethodBlock';
-import { SettingsReceiveBlock } from '../components/Settings/SettingsBlock/SettingsReceiveBlock';
 import { SettingsEtcBlock } from '../components/Settings/SettingsBlock/SettingsEtcBlock';
+import { SettingsInfoBlock } from '../components/Settings/SettingsBlock/SettingsInfoBlock';
+import { SettingsProfileBlock } from '../components/Settings/SettingsBlock/SettingsProfileBlock';
+import { SettingsReceiveBlock } from '../components/Settings/SettingsBlock/SettingsReceiveBlock';
+import { Client } from '../tools/client';
 
 export const Settings = () => {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState(null);
-  const [methods, setMethods] = useState([]);
+  // const [methods, setMethods] = useState([]);
   const loadUser = useCallback(async () => {
     const { data } = await Client.get('/accounts/auth');
     setUser(data.user);
@@ -18,10 +17,10 @@ export const Settings = () => {
     setLoading(false);
   }, []);
 
-  const loadMethods = async () => {
-    const { data } = await Client.get('/accounts/methods');
-    setMethods(data.methods);
-  };
+  // const loadMethods = async () => {
+  //   const { data } = await Client.get('/accounts/methods');
+  //   setMethods(data.methods);
+  // };
 
   const updateUser = async (payload) => {
     const { data } = await Client.post('/accounts/auth', payload);
@@ -41,7 +40,7 @@ export const Settings = () => {
         updateUser={updateUser}
         loadUser={loadUser}
       />
-      <SettingsMethodBlock user={user} methods={methods} />
+      {/* <SettingsMethodBlock user={user} methods={methods} /> */}
       <SettingsReceiveBlock user={user} updateUser={updateUser} />
       <SettingsEtcBlock user={user} />
     </FullScreenLoading>
