@@ -67,7 +67,7 @@ export const Centercoin = () => {
     const redirect = '/centercoin';
     const sessionId = localStorage.getItem('weblink-session-id');
     const basePath = `${window.location.host}/auth/authorize`;
-    const url = `dapp://${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
+    const url = `https://metamask.app.link/dapp/${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
     window.location.href = url;
   };
 
