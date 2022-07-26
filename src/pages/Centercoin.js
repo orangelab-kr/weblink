@@ -50,6 +50,27 @@ export const Centercoin = () => {
     },
   };
 
+  const getAppUrl = () => {
+    const android = `https://play.google.com/store/apps/details?id=io.metamask`;
+    const ios = `https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202`;
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/Android/i.test(userAgent)) return android;
+    return ios;
+  };
+
+  const onInstall = async () => {
+    window.location.href = getAppUrl();
+    setCurrentStep(Process.Open);
+  };
+
+  const onOpen = async () => {
+    const redirect = '/centercoin';
+    const sessionId = localStorage.getItem('weblink-session-id');
+    const basePath = `${window.location.host}/auth/authorize`;
+    const url = `dapp://${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
+    window.location.href = url;
+  };
+
   const onAddNetwork = async () => {
     await ethereum.request({
       method: 'wallet_addEthereumChain',
@@ -168,6 +189,7 @@ export const Centercoin = () => {
             title='MetaMask 설치'
             icon={<AppstoreOutline />}
             description='다운로드 후 비밀번호를 설정해주세요.'
+            onClick={onInstall}
             button='설치하기'
             time='3분'
           />
@@ -176,6 +198,7 @@ export const Centercoin = () => {
             title='MetaMask 열기'
             icon={<MailOpenOutline />}
             description='아래 버튼을 눌러 실행해주세요.'
+            onClick={onOpen}
             button='MetaMask에서 이어가기'
             time='30초'
           />
