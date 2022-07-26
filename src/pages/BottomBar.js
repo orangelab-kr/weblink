@@ -7,7 +7,6 @@ import {
   SetOutline,
   SoundOutline,
   UnorderedListOutline,
-  UserAddOutline,
 } from 'antd-mobile-icons';
 import styled from 'styled-components';
 import { BottomBarLevel } from '../components/BottomBar/BottomBarLevel';

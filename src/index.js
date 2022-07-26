@@ -1,19 +1,20 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
-import { Settings } from './pages/Settings';
+import { RequiredAuth } from './components/RequiredAuth';
 import { AuthAuthorize } from './pages/auth/Authorize';
+import { BottomBar } from './pages/BottomBar';
+import { Centercoin } from './pages/Centercoin';
 import { Level } from './pages/Level';
 import { Notifications } from './pages/Notifications';
 import { Pass } from './pages/Pass';
+import { PassPrograms } from './pages/PassPrograms';
+import { Pay } from './pages/Pay';
 import { Referral } from './pages/Referral';
 import { Secession } from './pages/Secession';
-import { BottomBar } from './pages/BottomBar';
-import { Pay } from './pages/Pay';
-import { PassPrograms } from './pages/PassPrograms';
-import { RequiredAuth } from './components/RequiredAuth';
-import { createRoot } from 'react-dom/client';
+import { Settings } from './pages/Settings';
 
 const rootNode = document.getElementById('root');
 
@@ -68,6 +69,9 @@ createRoot(rootNode).render(
               </Route>
               <Route path='/secession'>
                 <Secession />
+              </Route>
+              <Route path='/centercoin'>
+                <Centercoin />
               </Route>
               <Route path='/pay'>
                 <Pay />
