@@ -50,7 +50,6 @@ export const Referral = () => {
 
   return (
     <div>
-      {' '}
       <div style={{ margin: '0 28px' }}>
         <PageHeader>초대하기⁺</PageHeader>
         {count ? (

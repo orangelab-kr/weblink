@@ -7,7 +7,7 @@ import {
   SetOutline,
   SoundOutline,
   UnorderedListOutline,
-  UserAddOutline
+  UserAddOutline,
 } from 'antd-mobile-icons';
 import styled from 'styled-components';
 import { BottomBarLevel } from '../components/BottomBar/BottomBarLevel';
@@ -51,11 +51,11 @@ export const BottomBar = () => {
           icon={<FileOutline />}
           href='hikick://weblink/pass'
         /> */}
-        <BottomBarPrimaryButton
+        {/* <BottomBarPrimaryButton
           name='초대하기⁺'
           icon={<UserAddOutline />}
           href='hikick://weblink/referral'
-        />
+        /> */}
         <BottomBarPrimaryButton
           name='공지사항'
           icon={<SoundOutline />}

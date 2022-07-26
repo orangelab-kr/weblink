@@ -13,7 +13,7 @@ export const Settings = () => {
   const loadUser = useCallback(async () => {
     const { data } = await Client.get('/accounts/auth');
     setUser(data.user);
-    await loadMethods();
+    // await loadMethods();
     setLoading(false);
   }, []);
 

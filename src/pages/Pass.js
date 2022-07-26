@@ -1,9 +1,9 @@
 import { Tabs } from 'antd-mobile';
 import { useCallback, useEffect, useState } from 'react';
 import { PageHeader } from '../components/PageHeader';
-import { Client } from '../tools/client';
-import { PassMy } from '../components/Pass/PassMy';
 import { PassAvailable } from '../components/Pass/PassAvailable';
+import { PassMy } from '../components/Pass/PassMy';
+import { Client } from '../tools/client';
 
 export const Pass = () => {
   const [tab, setTab] = useState('myPasses');
@@ -32,7 +32,6 @@ export const Pass = () => {
 
   return (
     <div>
-      {' '}
       <div style={{ margin: '0 28px' }}>
         <PageHeader>패스</PageHeader>
       </div>
