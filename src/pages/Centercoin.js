@@ -27,6 +27,23 @@ const Process = {
 export const Centercoin = () => {
   const [ethereum, setEthereum] = useState();
   const [currentStep, setCurrentStep] = useState(Process.Install);
+
+  useEffect(() => {
+    const loadUser = async () => {
+      const { user } = await Client.get('/accounts/auth').then((r) => r.data);
+      if (!user.centercoinAddress) return;
+      setCurrentStep(Process.Done);
+      Dialog.alert({
+        confirmText: '확인',
+        header: <CheckCircleFill style={{ fontSize: 64 }} color='#00b578' />,
+        title: '이미 신청을 완료하신 상태입니다.',
+        content: '영업일 기준 3일 이내로 지급될 예정입니다.',
+      });
+    };
+
+    loadUser();
+  }, []);
+
   const networkInfo = {
     chainId: '0x2019',
     chainName: 'Klaytn Mainnet',
@@ -65,8 +82,9 @@ export const Centercoin = () => {
 
   const onOpen = async () => {
     const redirect = '/centercoin';
+    const sessionKey = 'weblink-session-id';
     const basePath = `${window.location.host}/auth/authorize`;
-    const sessionId = encodeURI(localStorage.getItem('weblink-session-id'));
+    const sessionId = encodeURIComponent(localStorage.getItem(sessionKey));
     const url = `https://metamask.app.link/dapp/${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
     window.location.href = url;
   };

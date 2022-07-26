@@ -36,7 +36,7 @@ const GlobalStyle = styled.div`
 `;
 
 createRoot(rootNode).render(
-  <React.StrictMode>
+  <>
     <Reset />
     <GlobalStyle>
       <BrowserRouter>
@@ -81,5 +81,5 @@ createRoot(rootNode).render(
         </Switch>
       </BrowserRouter>
     </GlobalStyle>
-  </React.StrictMode>
+  </>
 );
