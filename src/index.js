@@ -6,7 +6,8 @@ import { Reset } from 'styled-reset';
 import { RequiredAuth } from './components/RequiredAuth';
 import { AuthAuthorize } from './pages/auth/Authorize';
 import { BottomBar } from './pages/BottomBar';
-import { Centercoin } from './pages/Centercoin';
+import { Centercoin } from './pages/centercoin';
+import { CentercoinMetamask } from './pages/centercoin/Metamask';
 import { Level } from './pages/Level';
 import { Notifications } from './pages/Notifications';
 import { Pass } from './pages/Pass';
@@ -70,7 +71,10 @@ createRoot(rootNode).render(
               <Route path='/secession'>
                 <Secession />
               </Route>
-              <Route path='/centercoin'>
+              <Route path='/centercoin/metamask'>
+                <CentercoinMetamask />
+              </Route>
+              <Route path='/centercoin' exact>
                 <Centercoin />
               </Route>
               <Route path='/pay'>

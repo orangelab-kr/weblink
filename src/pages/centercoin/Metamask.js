@@ -11,8 +11,8 @@ import {
 } from 'antd-mobile-icons';
 import { Step } from 'antd-mobile/es/components/steps/step';
 import { useEffect, useState } from 'react';
-import { PageHeader } from '../components/PageHeader';
-import { Client } from '../tools/client';
+import { PageHeader } from '../../components/PageHeader';
+import { Client } from '../../tools/client';
 
 const Process = {
   Install: 0,
@@ -24,7 +24,7 @@ const Process = {
   Done: 6,
 };
 
-export const Centercoin = () => {
+export const CentercoinMetamask = () => {
   const [ethereum, setEthereum] = useState();
   const [currentStep, setCurrentStep] = useState(Process.Install);
 
