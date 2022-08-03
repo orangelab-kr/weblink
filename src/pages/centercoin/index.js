@@ -1,6 +1,6 @@
 import { Button, Dialog, Divider, NoticeBar } from 'antd-mobile';
 import { CheckCircleFill, ExclamationOutline } from 'antd-mobile-icons';
-import { getResult, prepare, request } from 'klip-sdk';
+import { getResult, prepare } from 'klip-sdk';
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { PageHeader } from '../../components/PageHeader';
@@ -31,19 +31,21 @@ export const Centercoin = () => {
   }, []);
 
   useEffect(() => {
-    const { hash } = window.location;
-    if (!hash) {
+    const search = new URLSearchParams(window.location.search);
+    if (!search.has('result')) {
       localStorage.removeItem('klip-request-id');
       return;
     }
 
-    if (hash.startsWith('#success')) {
+    const result = search.get('result');
+    if (result === 'success') {
       const requestId = localStorage.getItem('kilp-request-id');
       if (!requestId) return;
 
       getResult(requestId).then(async (res) => {
         const centercoinAddress = res.result.klaytn_address;
         await Client.post(`/accounts/auth`, { centercoinAddress });
+        setEnabled(false);
         Dialog.alert({
           confirmText: '확인',
           header: <CheckCircleFill style={{ fontSize: 64 }} color='#00b578' />,
@@ -51,7 +53,7 @@ export const Centercoin = () => {
           content: '영업일 기준 3일 이내로 지급될 예정입니다.',
         });
       });
-    } else if (hash.startsWith('#failed')) {
+    } else if (result === 'failed') {
       Dialog.alert({
         confirmText: '확인',
         header: <ExclamationOutline style={{ fontSize: 64 }} color='warning' />,
@@ -65,8 +67,8 @@ export const Centercoin = () => {
 
   const onKlip = async () => {
     const bappName = '하이킥';
-    const successLink = 'hikick://weblink/centercoin#success';
-    const failLink = 'hikick://weblink/centercoin#failed';
+    const successLink = 'hikick://weblink/centercoin?result=success';
+    const failLink = 'hikick://weblink/centercoin?result=failed';
     const res = await prepare.auth({ bappName, successLink, failLink });
     if (res.err) {
       Dialog.alert({
@@ -80,12 +82,10 @@ export const Centercoin = () => {
     }
 
     const requestId = res.request_key;
-
     localStorage.setItem('kilp-request-id', requestId);
     const params = `https://klipwallet.com/?target=a2a?request_key=${requestId}`;
     const url = `kakaotalk://klipwallet/open?url=${encodeURIComponent(params)}`;
     window.location.href = url;
-    request(requestId);
   };
 
   return (
