@@ -1,10 +1,12 @@
 import { Button, Dialog, Divider, NoticeBar } from 'antd-mobile';
 import { CheckCircleFill, ExclamationOutline } from 'antd-mobile-icons';
 import { getResult, prepare } from 'klip-sdk';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { PageHeader } from '../../components/PageHeader';
 import { Client } from '../../tools/client';
+import { useInterval } from '../../tools/useInterval';
+import { useLocalStorage } from '../../tools/useLocalStorage';
 
 const Link = styled.a`
   text-decoration: none;
@@ -13,6 +15,7 @@ const Link = styled.a`
 
 export const Centercoin = () => {
   const [enabled, setEnabled] = useState(true);
+  const [requestId, setRequestId] = useLocalStorage('klip-request-id');
 
   useEffect(() => {
     const loadUser = async () => {
@@ -30,59 +33,59 @@ export const Centercoin = () => {
     loadUser();
   }, []);
 
-  useEffect(() => {
-    const search = new URLSearchParams(window.location.search);
-    if (!search.has('result')) {
-      localStorage.removeItem('klip-request-id');
-      return;
-    }
+  const registerAddress = useCallback(
+    async (centercoinAddress) => {
+      setRequestId();
+      setEnabled(false);
 
-    const result = search.get('result');
-    if (result === 'success') {
-      const requestId = localStorage.getItem('kilp-request-id');
-      if (!requestId) return;
-
-      getResult(requestId).then(async (res) => {
-        const centercoinAddress = res.result.klaytn_address;
-        await Client.post(`/accounts/auth`, { centercoinAddress });
-        setEnabled(false);
-        Dialog.alert({
-          confirmText: '확인',
-          header: <CheckCircleFill style={{ fontSize: 64 }} color='#00b578' />,
-          title: '등록이 완료되었습니다.',
-          content: '영업일 기준 3일 이내로 지급될 예정입니다.',
-        });
+      await Client.post(`/accounts/auth`, { centercoinAddress });
+      Dialog.alert({
+        confirmText: '확인',
+        header: <CheckCircleFill style={{ fontSize: 64 }} color='#00b578' />,
+        title: '등록이 완료되었습니다.',
+        content: '영업일 기준 3일 이내로 지급될 예정입니다.',
       });
-    } else if (result === 'failed') {
+    },
+    [setRequestId]
+  );
+
+  const throwError = useCallback(
+    (message) => {
+      setRequestId();
+      if (message === 'request key does not exist') return;
       Dialog.alert({
         confirmText: '확인',
         header: <ExclamationOutline style={{ fontSize: 64 }} color='warning' />,
         title: '오류가 발생하였습니다.',
-        content: '다시 시도하세요.',
+        content: message,
       });
-    }
+    },
+    [setRequestId]
+  );
 
-    localStorage.removeItem('klip-request-id');
-  }, []);
+  const checkKlip = useCallback(async () => {
+    if (!enabled || !requestId) return;
 
+    const res = await getResult(requestId);
+    if (res.err) return throwError(res.err);
+    if (res.status === 'prepared') return;
+    const centercoinAddress = res.result.klaytn_address;
+    await registerAddress(centercoinAddress);
+  }, [enabled, registerAddress, requestId, throwError]);
+
+  useInterval(() => checkKlip(), requestId ? 1500 : null);
   const onKlip = async () => {
-    const bappName = '하이킥';
-    const successLink = 'hikick://weblink/centercoin?result=success';
-    const failLink = 'hikick://weblink/centercoin?result=failed';
-    const res = await prepare.auth({ bappName, successLink, failLink });
-    if (res.err) {
-      Dialog.alert({
-        confirmText: '확인',
-        header: <ExclamationOutline style={{ fontSize: 64 }} color='warning' />,
-        title: '오류가 발생하였습니다.',
-        content: res.err,
-      });
+    const callbackLink = 'hikick://weblink/centercoin';
+    const res = await prepare.auth({
+      bappName: '하이킥',
+      successLink: callbackLink,
+      failLink: callbackLink,
+    });
 
-      return;
-    }
-
+    if (res.err) return throwError(res.err);
     const requestId = res.request_key;
-    localStorage.setItem('kilp-request-id', requestId);
+
+    setRequestId(requestId);
     const params = `https://klipwallet.com/?target=a2a?request_key=${requestId}`;
     const url = `kakaotalk://klipwallet/open?url=${encodeURIComponent(params)}`;
     window.location.href = url;
