@@ -89,7 +89,7 @@ export const Centercoin = () => {
     <div>
       <div style={{ margin: '0 28px' }}>
         <PageHeader>센터코인</PageHeader>
-        <div style={{ margin: '0 1em' }}>
+        <div style={{ margin: '0 0.5em' }}>
           <div
             style={{
               display: 'flex',

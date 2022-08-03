@@ -68,7 +68,7 @@ export const CentercoinMetamask = () => {
   };
 
   const getAppUrl = () => {
-    const android = `https://play.google.com/store/apps/details?id=io.metamask`;
+    const android = `market://details?id=io.metamask`;
     const ios = `https://apps.apple.com/us/app/metamask-blockchain-wallet/id1438144202`;
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
     if (/Android/i.test(userAgent)) return android;
@@ -85,7 +85,7 @@ export const CentercoinMetamask = () => {
     const sessionKey = 'weblink-session-id';
     const basePath = `${window.location.host}/auth/authorize`;
     const sessionId = encodeURIComponent(localStorage.getItem(sessionKey));
-    const url = `https://metamask.app.link/dapp/${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
+    const url = `dapp://${basePath}?redirect=${redirect}&sessionId=${sessionId}`;
     window.location.href = url;
   };
 
