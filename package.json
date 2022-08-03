@@ -1,6 +1,6 @@
 {
   "name": "weblink",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "private": true,
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",

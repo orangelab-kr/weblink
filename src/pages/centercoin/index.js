@@ -82,6 +82,9 @@ export const Centercoin = () => {
     const requestId = res.request_key;
 
     localStorage.setItem('kilp-request-id', requestId);
+    const params = `https://klipwallet.com/?target=a2a?request_key=${requestId}`;
+    const url = `kakaotalk://klipwallet/open?url=${encodeURIComponent(params)}`;
+    window.location.href = url;
     request(requestId);
   };
 
