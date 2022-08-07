@@ -1,14 +1,28 @@
-import { Button, Form, Input, Loading, Popup } from 'antd-mobile';
-import { CheckShieldFill, RightOutline } from 'antd-mobile-icons';
+import { Button, Form, Grid, Input, Loading, Popup } from 'antd-mobile';
+import {
+  CheckShieldFill,
+  CheckShieldOutline,
+  RightOutline,
+} from 'antd-mobile-icons';
 import dayjs from 'dayjs';
 import { useState } from 'react';
+import { BooleanParam, useQueryParam, withDefault } from 'use-query-params';
 import { Client } from '../tools/client';
 import { onLicenseStrFormatter } from '../tools/formatter';
 
 export const EditableLicense = ({ user, value, onReload }) => {
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
-  const [visible, setVisible] = useState(false);
+  const [later, setlater] = useQueryParam(
+    'later',
+    withDefault(BooleanParam, false)
+  );
+
+  const [visible, setVisible] = useQueryParam(
+    'license',
+    withDefault(BooleanParam, false)
+  );
+
   const defaultValue = {
     ...user,
     birthday: dayjs(user.birthday).format('YYYY년 MM월 DD일'),
@@ -34,6 +48,15 @@ export const EditableLicense = ({ user, value, onReload }) => {
     }
   };
 
+  const doLater = () => {
+    window.location.href = 'hikick://qrcode?later=true';
+  };
+
+  const onClose = () => {
+    setVisible(false);
+    setlater(false);
+  };
+
   return (
     <>
       {value ? (
@@ -46,7 +69,7 @@ export const EditableLicense = ({ user, value, onReload }) => {
         </div>
       )}
 
-      <Popup visible={visible} onMaskClick={() => setVisible(false)}>
+      <Popup visible={visible} onMaskClick={onClose}>
         <div style={{ margin: '2em' }}>
           <p style={{ fontSize: '1.8em', fontWeight: 800 }}>운전면허 등록</p>
           <Form
@@ -69,9 +92,22 @@ export const EditableLicense = ({ user, value, onReload }) => {
               />
             </Form.Item>
           </Form>
-          <Button color='primary' block onClick={onConfirm}>
-            등록하기
-          </Button>
+          <Grid columns={later ? 2 : 1} gap={8} style={{ marginTop: 15 }}>
+            {later && (
+              <Grid.Item>
+                <Button color='default' block onClick={doLater}>
+                  <RightOutline style={{ marginRight: 5 }} />
+                  다음에 하기
+                </Button>
+              </Grid.Item>
+            )}
+            <Grid.Item>
+              <Button color='primary' block onClick={onConfirm}>
+                <CheckShieldOutline style={{ marginRight: 5 }} />
+                등록하기
+              </Button>
+            </Grid.Item>
+          </Grid>
         </div>
       </Popup>
     </>

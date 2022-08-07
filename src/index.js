@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import styled from 'styled-components';
 import { Reset } from 'styled-reset';
+import { QueryParamProvider } from 'use-query-params';
 import { RequiredAuth } from './components/RequiredAuth';
 import { AuthAuthorize } from './pages/auth/Authorize';
 import { BottomBar } from './pages/BottomBar';
@@ -41,48 +42,50 @@ createRoot(rootNode).render(
     <Reset />
     <GlobalStyle>
       <BrowserRouter>
-        <Switch>
-          <Route path='/auth/authorize'>
-            <AuthAuthorize />
-          </Route>
-          <Route path='/'>
-            <RequiredAuth>
-              <Route path='/level'>
-                <Level />
-              </Route>
-              <Route path='/settings'>
-                <Settings />
-              </Route>
-              <Route path='/notifications'>
-                <Notifications />
-              </Route>
-              <Route path={['/pass', '/passPrograms']} exact>
-                <Pass />
-              </Route>
-              <Route path={'/referral'} exact>
-                <Referral />
-              </Route>
-              <Route path='/passPrograms/:passProgramId'>
-                <PassPrograms />
-              </Route>
-              <Route path='/bottombar'>
-                <BottomBar />
-              </Route>
-              <Route path='/secession'>
-                <Secession />
-              </Route>
-              <Route path='/centercoin/metamask'>
-                <CentercoinMetamask />
-              </Route>
-              <Route path='/centercoin' exact>
-                <Centercoin />
-              </Route>
-              <Route path='/pay'>
-                <Pay />
-              </Route>
-            </RequiredAuth>
-          </Route>
-        </Switch>
+        <QueryParamProvider ReactRouterRoute={Route}>
+          <Switch>
+            <Route path='/auth/authorize'>
+              <AuthAuthorize />
+            </Route>
+            <Route path='/'>
+              <RequiredAuth>
+                <Route path='/level'>
+                  <Level />
+                </Route>
+                <Route path='/settings'>
+                  <Settings />
+                </Route>
+                <Route path='/notifications'>
+                  <Notifications />
+                </Route>
+                <Route path={['/pass', '/passPrograms']} exact>
+                  <Pass />
+                </Route>
+                <Route path={'/referral'} exact>
+                  <Referral />
+                </Route>
+                <Route path='/passPrograms/:passProgramId'>
+                  <PassPrograms />
+                </Route>
+                <Route path='/bottombar'>
+                  <BottomBar />
+                </Route>
+                <Route path='/secession'>
+                  <Secession />
+                </Route>
+                <Route path='/centercoin/metamask'>
+                  <CentercoinMetamask />
+                </Route>
+                <Route path='/centercoin' exact>
+                  <Centercoin />
+                </Route>
+                <Route path='/pay'>
+                  <Pay />
+                </Route>
+              </RequiredAuth>
+            </Route>
+          </Switch>
+        </QueryParamProvider>
       </BrowserRouter>
     </GlobalStyle>
   </>
