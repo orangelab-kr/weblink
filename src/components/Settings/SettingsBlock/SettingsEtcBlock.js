@@ -41,11 +41,11 @@ export const SettingsEtcBlock = () => {
           <RightOutline />
         </SettingsItem>
       </Link>
-      <Link href='/secession'>
+      {/* <Link href='/secession'>
         <SettingsItem title='탈퇴'>
           <RightOutline />
         </SettingsItem>
-      </Link>
+      </Link> */}
     </SettingsBlock>
   );
 };
