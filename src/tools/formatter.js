@@ -46,5 +46,5 @@ export const onExpiryFormatter = (expiry) => {
 export const onLicenseStrFormatter = (licenseStr) => {
   return licenseStr
     .replace(/[^0-9|ㄱ-힣]/g, '')
-    .replace(/^([가-힣]{2})(\d{2})(\d{6})(\d{2})$/g, '$1-$2-$3-$4');
+    .replace(/^([가-힣|0-9]{2})(\d{2})(\d{6})(\d{2})$/g, '$1-$2-$3-$4');
 };
